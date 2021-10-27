@@ -5,6 +5,11 @@ import {
   getUserInfoSuccess,
   getUserInfoFailure,
 } from '../Actions/user';
+import {
+  getItemRequest,
+  getItemSuccess,
+  getItemFailure,
+} from '../Actions/items';
 
 import { sendFeedbackAction } from '../Actions/feedback';
 import handleError from './handleError';
@@ -12,6 +17,7 @@ import handleError from './handleError';
 const requests = {
   users: 'http://localhost:3000/api/v1/users',
   login: 'http://localhost:3000/api/v1/login',
+  items: 'http://localhost:3000/api/v1/items',
 };
 
 export const requestUserInfo = async (dispatch, id, token) => {
@@ -61,3 +67,16 @@ export const requestSignup = async (dispatch, username, password, passwordConf) 
     handleError(dispatch, 'signup', error);
   }
 };
+
+const requestItemInfo = async (dispatch) => {
+  try {
+    dispatch(getItemRequest());
+    const response = await axios.get('http://localhost:3000/api/v1/services');
+    dispatch(getItemSuccess(response.data));
+  } catch (error) {
+    dispatch(getItemFailure);
+    handleError(dispatch, 'service', error);
+  }
+};
+
+export default requestItemInfo;

@@ -1,0 +1,105 @@
+.headerDiv {
+  font-family: 'Damion', cursive;
+  color: rgb(123, 180, 75);
+  font-weight: bold;
+  font-size: 90px;
+}
+
+.headerText {
+  font-family: 'Damion', cursive;
+  color: rgb(123, 180, 75);
+  font-weight: bold;
+  font-size: 50px;
+}
+
+.headerDiv:hover {
+  color: rgb(52, 87, 24);
+  text-decoration: none;
+}
+
+.socialButton {
+  color: rgb(32, 71, 0);
+}
+
+@media (max-width: 760px) {
+  .headerNavbar {
+    display: flex;
+  }
+
+  .mainPage {
+    border-top: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .headerDiv {
+    font-family: 'Damion', cursive;
+    color: rgb(123, 180, 75);
+    font-weight: bold;
+    font-size: 30px;
+  }
+
+  .fullPage {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .socialLinks {
+    display: flex;
+  }
+
+  .loginSignUpBtns {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navBarButton {
+    background-color: rgb(123, 180, 75);
+    color: white;
+    border: none;
+    font-weight: bold;
+  }
+}
+
+@media (min-width: 760px) {
+  .headerNavbar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    height: 100vh;
+    border-right: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .fullPage {
+    display: flex;
+  }
+
+  /* .mainPage {
+    border-right: 1px solid rgba(0, 0, 0, 0.4);
+  } */
+
+  .socialLinks {
+    display: flex;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+
+  .loginSignUpBtns {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navBarButton {
+    background-color: rgb(123, 180, 75);
+    color: white;
+    border: none;
+    font-weight: bold;
+    padding: 3px;
+    margin-top: 20px;
+  }
+
+  .navGroupOne {
+    display: flex;
+    flex-direction: column;
+  }
+}

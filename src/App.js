@@ -1,24 +1,45 @@
-import logo from './logo.svg';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Modal } from 'react-bootstrap';
+import requestServiceInfo from './Helpers/requests';
+import Routes from './routes';
+import Feedback from './Components/feedback';
+import { setFeedbackInactiveAction } from './Actions/feedback';
 
 function App() {
+  const dispatch = useDispatch();
+  const feedbackData = useSelector((state) => state.feedback);
+
+  const closeError = () => {
+    dispatch(setFeedbackInactiveAction());
+  };
+
+  useEffect(() => {
+    requestServiceInfo(dispatch);
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (feedbackData.active) {
+      setTimeout(() => closeError(), 5000);
+    }
+  }, [feedbackData]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit
-          <code>src/App.js</code>
-          and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      { feedbackData.active
+        ? (
+          <Modal
+            show={feedbackData}
+            backdrop="static"
+            keyboard={false}
+          >
+            <Modal.Body>
+              <Feedback type={feedbackData.type} feedback={feedbackData.feedback} />
+            </Modal.Body>
+          </Modal>
+        )
+        : null }
+      <Routes />
     </div>
   );
 }
