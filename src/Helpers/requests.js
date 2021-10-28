@@ -71,11 +71,11 @@ export const requestSignup = async (dispatch, username, password, passwordConf) 
 const requestItemInfo = async (dispatch) => {
   try {
     dispatch(getItemRequest());
-    const response = await axios.get('http://localhost:3000/api/v1/services');
+    const response = await axios.get(requests.items);
     dispatch(getItemSuccess(response.data));
   } catch (error) {
     dispatch(getItemFailure);
-    handleError(dispatch, 'service', error);
+    handleError(dispatch, 'items', error);
   }
 };
 

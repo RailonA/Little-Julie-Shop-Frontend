@@ -7,18 +7,22 @@ import ItemList from '../Containers/itemList';
 import '../Assets/styles/homePage.css';
 
 const HomePage = () => {
+  const ItemData = useSelector((state) => state.items);
+  console.log(ItemData);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     requestItemInfo(dispatch);
   }, [dispatch]);
 
-  const ItemData = useSelector((state) => state.items.itemsCollection);
-
   return (
     <div className="col-12 justify-content-center">
       <h2 className="mainPageTitles mt-5 mb-5 text-center">What we do? </h2>
-      <ItemList services={ItemData} />
+      <ItemList
+        key={ItemData.id}
+        items={ItemData.itemsCollection}
+      />
     </div>
   );
 };
