@@ -79,4 +79,38 @@ const requestItemInfo = async (dispatch) => {
   }
 };
 
+// export const handleUploadImage = async (image) => {
+//   // KEYS
+//   const URLUploadImg = 'https://res.cloudinary.com/lil-julie-shop/image/fetch/';
+//   const uploadPreset = 'ml_default';
+//   const apiKey = '543791316864244';
+//   const apiSecret = '2ojYpLDZSydczvaAUmiE0f71Mc8';
+
+//   const formData = new FormData();
+//   formData.append('file', image.file);
+//   formData.append('upload_preset', uploadPreset);
+//   formData.append('api_key', apiKey);
+//   formData.append('api_secret', apiSecret);
+
+//   const options = {
+//     method: 'GET',
+//     body: formData,
+//   };
+
+//   try {
+//     const res = await axios.get(URLUploadImg, options);
+//     const restunImage = await res.json();
+//     console.log(restunImage);
+
+//     return restunImage;
+//   } catch (err) {
+//     return err;
+//   }
+// };
+
+export const fetchImages = async () => {
+  const response = await axios.get('https://res.cloudinary.com/lil-julie-shop/image/list/item.json');
+  console.log(response);
+};
+
 export default requestItemInfo;

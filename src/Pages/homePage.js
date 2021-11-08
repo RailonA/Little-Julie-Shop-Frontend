@@ -8,7 +8,7 @@ import '../Assets/styles/homePage.css';
 
 const HomePage = () => {
   const ItemData = useSelector((state) => state.items);
-  console.log(ItemData);
+  // console.log(ItemData);
 
   const dispatch = useDispatch();
 

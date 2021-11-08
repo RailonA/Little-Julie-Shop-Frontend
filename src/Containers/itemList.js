@@ -1,5 +1,4 @@
 import { Card } from 'react-bootstrap';
-// import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Cloudinary } from '@cloudinary/url-gen';
 // import { Image } from 'cloudinary-react';
@@ -15,8 +14,8 @@ const ItemList = ({ items }) => {
       secure: true, // force https, set to false to force http
     },
   });
-  const myImage = cld.image('p6a1m4z8avkvxt0gwhdssnnk6mbk');
-  const myURL = myImage.toURL();
+
+  const getImage = (blobKey) => cld.image(blobKey).toURL();
 
   return (
     <div className="container-fluid flex-column justify-content-center">
@@ -35,11 +34,7 @@ const ItemList = ({ items }) => {
                         <p className=" col-8  d-flex justify-content-center serviceCategoryTitle p-2">{ items.itemName }</p>
                         <p className=" col-8  d-flex justify-content-center serviceCategoryTitle p-2">{ items.itemDescription }</p>
                         <p className=" col-8  d-flex justify-content-center serviceCategoryTitle p-2">{ items.itemPrice }</p>
-                        <img src={myURL} alt=" " />
-                        {/* <img key={items.id} src={items.itemPhoto.blob.key} alt=" " /> */}
-                        {/* <Image
-                          publicID={items.itemPhoto}
-                        /> */}
+                        <img src={getImage(items.itemPhoto.blob.key)} alt=" " />
                       </div>
                     </div>
                   </div>
