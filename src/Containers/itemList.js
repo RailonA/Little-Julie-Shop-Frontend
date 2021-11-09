@@ -1,10 +1,7 @@
 import { Card } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { Cloudinary } from '@cloudinary/url-gen';
-// import { Image } from 'cloudinary-react';
 
-// import { AdvancedImage } from '@cloudinary/react';
-// active_storage.key
 const ItemList = ({ items }) => {
   const cld = new Cloudinary({
     cloud: {
