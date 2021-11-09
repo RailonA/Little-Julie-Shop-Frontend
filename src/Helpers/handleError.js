@@ -5,7 +5,7 @@ const handleError = (dispatch, action, error) => {
   const loginProblems = action === 'login';
   const userInfoProblems = action === 'userInfo';
   const itemProblems = action === 'item';
-  // const appointmentsProblems = action === 'appointment';
+  // const purchaseProblems = action === 'purchase';
 
   if (signupProblems && error.response.status === 422) {
     dispatch(sendFeedbackAction({ type: 'error', feedback: error.response.data.error }));
@@ -28,7 +28,7 @@ const handleError = (dispatch, action, error) => {
     dispatch(sendFeedbackAction({ type: 'error', feedback: error.response.data.error }));
   }
 
-  // if (appointmentsProblems) {
+  // if (purchaseProblems) {
   //   if (error.response.status === 401) {
   //     dispatch(sendFeedbackAction({ type: 'error', feedback: error.response.data.error }));
   //   }

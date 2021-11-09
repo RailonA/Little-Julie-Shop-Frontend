@@ -7,15 +7,13 @@ import HomePage from './Pages/homePage';
 import Page404 from './Pages/Page404';
 import Nav from './Containers/navBar';
 
-require('./Assets/styles/homePage.css');
+// require('./Assets/styles/homePage.css');
 
 const Routes = () => (
   <BrowserRouter>
-    <div className="d-flex fullHeight fullPage">
-      <div className="col-xs-12 col-md-3 mr-3">
-        <Nav />
-      </div>
-      <div className="mr-3 mainPage col">
+    <div className="">
+      <Nav className=" col-12" />
+      <div className="d-flex col-12">
         <Switch>
           <Route path="/" component={HomePage} exact />
           <Route path="/Page404" component={Page404} exact />

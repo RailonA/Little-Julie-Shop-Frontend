@@ -69,14 +69,14 @@ const UserProfile = () => {
       {userData.username
         ? (
           <div>
-            <Link to="/user/:id" className="ml-3"><Button className="ml-3 navBarButton">{userData.username}</Button></Link>
-            <Button type="button" name="logout" className="ml-3 navBarButton" onClick={handleLogout}>LOGOUT</Button>
+            <Link to="/user/:id" className=" "><Button className=" ">{userData.username}</Button></Link>
+            <Button type="button" name="logout" className="" onClick={handleLogout}>LOGOUT</Button>
           </div>
         )
         : (
-          <div className="loginSignUpBtns">
-            <Button onClick={openLogin} className="navBarButton mt-2">LOGIN</Button>
-            <Button type="button" onClick={openSignUp} className="navBarButton mt-2">SIGN UP</Button>
+          <div className="d-flex">
+            <Button onClick={openLogin} className="mr-5 navBarBtnColor">LOGIN</Button>
+            <Button type="button" onClick={openSignUp} className="mr-5 navBarBtnColor">SIGN UP</Button>
           </div>
         )}
     </div>

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Button, Modal } from 'react-bootstrap';
 import { requestLogin } from '../Helpers/requests';
-import '../Assets/styles/navBar.css';
+// import '../Assets/styles/navBar.css';
 
 const LoginForm = ({ onCancel }) => {
   const [userCred, setUserCred] = useState({ username: '', password: '' });

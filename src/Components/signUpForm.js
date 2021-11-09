@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Button, Modal } from 'react-bootstrap';
 import { requestSignup } from '../Helpers/requests';
-import '../Assets/styles/navBar.css';
+// import '../Assets/styles/navBar.css';
 
 const SignUpForm = ({ onCancel }) => {
   const [userCred, setUserCred] = useState({ username: '', password: '', passwordConfirmation: '' });
@@ -42,13 +42,13 @@ const SignUpForm = ({ onCancel }) => {
       </Modal.Header>
       <Modal.Body>
         <div className="flex-column">
-          <input className="d-flex col-10" name="username" type="text" placeholder="Enter Username" onChange={handleChange} />
-          <input className="d-flex col-10" name="password" type="password" placeholder="Enter Password" onChange={handleChange} />
-          <input className="d-flex col-10" name="password_confirmation" type="password" placeholder="Confirm Password" onChange={handleChange} />
+          <input className=" " name="username" type="text" placeholder="Enter Username" onChange={handleChange} />
+          <input className=" " name="password" type="password" placeholder="Enter Password" onChange={handleChange} />
+          <input className=" " name="password_confirmation" type="password" placeholder="Confirm Password" onChange={handleChange} />
         </div>
       </Modal.Body>
       <Modal.Footer>
-        <Button type="submit" className="navBarButton">SIGN UP</Button>
+        <Button type="submit" className=" ">SIGN UP</Button>
         <Button type="button" variant="secondary" onClick={onCancel}>Cancel</Button>
       </Modal.Footer>
     </form>
