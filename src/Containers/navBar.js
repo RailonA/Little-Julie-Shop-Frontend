@@ -9,7 +9,7 @@ const NavBar = () => (
     <div className="d-flex  col-12 m-3">
       <div className=" col-7 ">
         <Link to="/">
-          <h2>Little Julie Shop</h2>
+          <h2 className="pageTitle">Little Julie Shop</h2>
         </Link>
       </div>
       <div className="d-flex col-5 justify-content-end align-items-center">

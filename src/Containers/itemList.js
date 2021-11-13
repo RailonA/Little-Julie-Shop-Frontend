@@ -21,7 +21,7 @@ const ItemList = ({ items }) => {
           <div key={items.id} className="d-flex col-sm-5 m-4 itemCard ">
             <div className="p-4">
               <div className=" d-flex justify-content-center mb-3">
-                <div className="p-4 itemPhotoContainer d-flex justify-content-center align-items-center col-5">
+                <div className="p-1 itemPhotoContainer d-flex justify-content-center align-items-center col-5">
                   <img className="itemPhoto d-flex" src={getImage(items.itemPhoto.blob.key)} alt=" " />
                 </div>
               </div>
@@ -35,7 +35,7 @@ const ItemList = ({ items }) => {
                   <p className=" ">{ items.itemDescription }</p>
                 </div>
                 <div className="d-flex justify-content-end">
-                  <p className="mr-2">Price: $</p>
+                  <p className="mr-2 font-weight-bold">Price: $</p>
                   <p className=" ">{ items.itemPrice }</p>
                 </div>
               </div>
