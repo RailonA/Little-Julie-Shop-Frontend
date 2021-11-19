@@ -10,6 +10,11 @@ import {
   getItemSuccess,
   getItemFailure,
 } from '../Actions/items';
+import {
+  getCategoryRequest,
+  getCategorySuccess,
+  getCategoryFailure,
+} from '../Actions/category';
 
 import { sendFeedbackAction } from '../Actions/feedback';
 import handleError from './handleError';
@@ -18,6 +23,7 @@ const requests = {
   users: 'http://localhost:3000/api/v1/users',
   login: 'http://localhost:3000/api/v1/login',
   items: 'http://localhost:3000/api/v1/items',
+  categories: 'http://localhost:3000/api/v1/categories',
 };
 
 export const requestUserInfo = async (dispatch, id, token) => {
@@ -76,6 +82,18 @@ const requestItemInfo = async (dispatch) => {
   } catch (error) {
     dispatch(getItemFailure);
     handleError(dispatch, 'items', error);
+  }
+};
+
+export const requestCategoryInfo = async (dispatch) => {
+  try {
+    dispatch(getCategoryRequest());
+    const response = await axios.get(requests.categories);
+    console.log(response.data);
+    dispatch(getCategorySuccess(response.data));
+  } catch (error) {
+    dispatch(getCategoryFailure);
+    handleError(dispatch, 'categories', error);
   }
 };
 
