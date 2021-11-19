@@ -5,7 +5,8 @@ import '../Assets/styles/itemList.css';
 const ItemList = ({ items }) => {
   const cld = new Cloudinary({
     cloud: {
-      cloudName: 'lil-julie-shop',
+      cloudName: 'caged-trees',
+      // cloudName: 'lil-julie-shop',
     },
     url: {
       secure: true, // force https, set to false to force http
