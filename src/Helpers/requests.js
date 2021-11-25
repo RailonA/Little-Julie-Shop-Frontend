@@ -89,7 +89,6 @@ export const requestCategoryInfo = async (dispatch) => {
   try {
     dispatch(getCategoryRequest());
     const response = await axios.get(requests.categories);
-    console.log(response.data);
     dispatch(getCategorySuccess(response.data));
   } catch (error) {
     dispatch(getCategoryFailure);

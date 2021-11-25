@@ -4,14 +4,13 @@ import { useEffect } from 'react';
 // import { Link } from 'react-router-dom';
 import requestItemInfo, { requestCategoryInfo } from '../Helpers/requests';
 import ItemList from '../Containers/itemList';
+import LeftColumn from '../Containers/leftColumn';
+
 // import '../Assets/styles/homePage.css';
 
 const HomePage = () => {
-  const ItemData = useSelector((state) => state.items);
-  const CategoryData = useSelector((state) => state.category);
-
-  console.log(ItemData);
-  console.log(CategoryData);
+  const itemData = useSelector((state) => state.items);
+  const categoryData = useSelector((state) => state.category);
 
   const dispatch = useDispatch();
 
@@ -24,13 +23,16 @@ const HomePage = () => {
     <div className="d-flex">
       <div>
         <h1>LEFT COLUMN</h1>
+        <LeftColumn
+          key={categoryData.id}
+          categoryInfo={categoryData.categoryCollection}
+        />
       </div>
       <div className="col-12 justify-content-center">
-        <h2 className=" ">What we do? </h2>
         <div className="col-12 d-flex">
           <ItemList
-            key={ItemData.id}
-            items={ItemData.itemsCollection}
+            key={itemData.id}
+            items={itemData.itemsCollection}
           />
         </div>
       </div>
