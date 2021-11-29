@@ -20,7 +20,7 @@ const HomePage = () => {
   }, [dispatch]);
 
   return (
-    <div className="d-flex container-fluid">
+    <div className="d-flex container-fluid justify-content-center">
       <div className="d-none d-sm-block col-3">
         <LeftColumn
           key={categoryData.id}
