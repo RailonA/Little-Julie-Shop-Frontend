@@ -20,16 +20,15 @@ const HomePage = () => {
   }, [dispatch]);
 
   return (
-    <div className="d-flex">
-      <div>
-        <h1>LEFT COLUMN</h1>
+    <div className="d-flex container-fluid">
+      <div className="d-none d-sm-block col-3">
         <LeftColumn
           key={categoryData.id}
           categoryInfo={categoryData.categoryCollection}
         />
       </div>
-      <div className="col-12 justify-content-center">
-        <div className="col-12 d-flex">
+      <div className="col-9 justify-content-center">
+        <div>
           <ItemList
             key={itemData.id}
             items={itemData.itemsCollection}

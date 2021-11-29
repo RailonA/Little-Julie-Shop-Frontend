@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Modal } from 'react-bootstrap';
+// import { AiOutlineMenu } from '@react-icons/all-files/ai/AiOutlineMenu';
 import { logoutAction } from '../Actions/user';
 import LoginForm from './loginForm';
 import SignUpForm from './signUpForm';
+import MenuButton from './menuButton';
 import { sendFeedbackAction } from '../Actions/feedback';
 import '../Assets/styles/navBar.css';
 
@@ -37,7 +39,7 @@ const UserProfile = () => {
   };
 
   return (
-    <div className="UserProfile">
+    <div>
       {loginProcess
         ? (
           <Modal
@@ -68,15 +70,16 @@ const UserProfile = () => {
         : null }
       {userData.username
         ? (
-          <div>
-            <Link to="/user/:id" className=" "><Button className=" ">{userData.username}</Button></Link>
-            <Button type="button" name="logout" className="" onClick={handleLogout}>LOGOUT</Button>
+          <div className="align-items-center flex-column d-flex justify-content-center mr-3 navBarButtonColumn">
+            <Link to="/user/:id" className="d-flex justify-content-center "><Button className=" ">{userData.username}</Button></Link>
+            <Button type="button" name="logout" className="d-flex justify-content-center" onClick={handleLogout}>LOGOUT</Button>
           </div>
         )
         : (
-          <div className="d-flex">
-            <Button onClick={openLogin} className="mr-5 navBarBtnColor">LOGIN</Button>
-            <Button type="button" onClick={openSignUp} className="mr-5 navBarBtnColor">SIGN UP</Button>
+          <div className="align-items-center flex-column flex-md-row d-flex  mr-3 navBarButtonColumn  ">
+            <Button onClick={openLogin} className="navBarBtnColor d-flex justify-content-center m-2 bm-burger-1">LOGIN</Button>
+            <Button type="button" onClick={openSignUp} className=" navBarBtnColor d-flex justify-content-center m-2 bm-burger-2">SIGN UP</Button>
+            <h3 className="navBarMenuColor d-flex justify-content-center d-md-none"><MenuButton /></h3>
           </div>
         )}
     </div>

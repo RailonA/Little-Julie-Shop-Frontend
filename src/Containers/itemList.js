@@ -16,10 +16,10 @@ const ItemList = ({ items }) => {
   const getImage = (blobKey) => cld.image(blobKey).toURL();
 
   return (
-    <div className=" container-fluid d-flex row justify-content-around">
+    <div className="d-flex row justify-content-around">
       {
         items.map((items) => (
-          <div key={items.id} className="d-flex col-sm-5 m-4 itemCard ">
+          <div key={items.id} className="d-flex col-sm-4 m-4 itemCard ">
             <div className="p-4">
               <div className=" d-flex justify-content-center mb-3">
                 <div className="p-1 itemPhotoContainer d-flex justify-content-center align-items-center col-5">

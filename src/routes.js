@@ -12,9 +12,9 @@ import Nav from './Containers/navBar';
 const Routes = () => (
   <BrowserRouter>
     <div className="">
-      <Nav className=" col-12" />
-      <div className="d-flex col-12">
-        <Switch>
+      <Nav />
+      <div>
+        <Switch className="container-fluid">
           <Route path="/" component={HomePage} exact />
           <Route path="/Page404" component={Page404} exact />
           {/* <Route path="/user/:id" component={UserPage} exact /> */}

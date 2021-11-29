@@ -1,6 +1,11 @@
 .navBarWrapper {
   border-bottom: 1px solid pink;
   box-shadow: 0 10px 10px 2px rgb(250, 228, 232);
+  display: flex;
+}
+
+.navBarMenuColor {
+  color: pink;
 }
 
 .navBarBtnColor {
@@ -10,7 +15,7 @@
 
 .pageTitle {
   font-family: 'Lobster Two', cursive;
-  font-size: 60px;
+  font-size: 50px;
   color: pink;
 }
 
@@ -28,4 +33,34 @@ a:hover {
 
 a:active {
   text-decoration: none;
+}
+
+@media (max-width: 320px) {
+  .navBarButtonColumn {
+    margin-right: 100px;
+  }
+}
+
+@media (min-width: 375px) {
+  .navBarButtonColumn {
+    margin-right: 100px;
+  }
+}
+
+@media (min-width: 768px) {
+  .navBarButtonColumn {
+    margin-right: 100px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navBarButtonColumn {
+    margin-right: 100px;
+  }
+}
+
+@media (min-width: 1440) {
+  .navBarButtonColumn {
+    margin-right: 100px;
+  }
 }
