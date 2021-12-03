@@ -1,55 +1,66 @@
 // import { parents } from 'dom-helpers';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import { Menu } from 'antd';
+// import { Menu } from 'antd';
 
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css';
 import '../Assets/styles/itemList.css';
 
-const { SubMenu } = Menu;
+// const { SubMenu } = Menu;
 
 const LeftColumn = ({ categoryInfo }) => {
-  // Returns selcted Index of Parent
   const [selectedCategory, setSelectedCategory] = useState('');
+
   const filteredParentCategory = categoryInfo.filter((category) => category.ancestry === null);
+
   const handleParentChange = (e, parent) => {
     setSelectedCategory(parent.id);
   };
+
   const filteredChildrenCategory = categoryInfo.filter(
     (category) => parseInt(category.ancestry, 10) === selectedCategory,
   );
+
+  console.log(selectedCategory);
 
   return (
     <div>
       <div>
         {
-          filteredParentCategory.map((parent) => (
-            <Menu
-              key={parent.id}
-              style={{ width: 180 }}
-              mode="inline"
-              onOpenChange={(e) => handleParentChange(e, parent)}
-            >
-              <SubMenu
-                title={parent.name}
-                key={parent.id}
-              >
+            filteredParentCategory.map((parent) => (
+              <div key="parent.id">
+                <button
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="true"
+                  key={parent.id}
+                  className="menuParentButton d-flex "
+                  onClick={(e) => handleParentChange(e, parent)}
+                >
+                  {parent.name}
+                </button>
                 {
-                  filteredChildrenCategory.map((children) => (
-                    <Menu.Item
-                      key={children.id}
-                    >
-                      {children.name}
-                    </Menu.Item>
-                  ))
-                }
-              </SubMenu>
-            </Menu>
-          ))
-      }
+                selectedCategory === parent.id && (
+                <ul className="menuChildButton ">
+                    {
+                    filteredChildrenCategory.map((children) => (
+                      <li
+                        className="d-flex list-group-item"
+                        key={children.id}
+                        href="/"
+                      >
+                        {children.name}
+                      </li>
+                    ))
+                  }
+                </ul>
+                )
+              }
+              </div>
+            ))
+    }
       </div>
     </div>
-
   );
 };
 
