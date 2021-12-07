@@ -1,14 +1,9 @@
-// import { parents } from 'dom-helpers';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-// import { Menu } from 'antd';
 
-// import 'antd/dist/antd.css';
 import '../Assets/styles/itemList.css';
 
-// const { SubMenu } = Menu;
-
-const LeftColumn = ({ categoryInfo }) => {
+const LeftColumn = ({ categoryInfo, setSelectedChildCategory }) => {
   const [selectedCategory, setSelectedCategory] = useState('');
 
   const filteredParentCategory = categoryInfo.filter((category) => category.ancestry === null);
@@ -17,11 +12,13 @@ const LeftColumn = ({ categoryInfo }) => {
     setSelectedCategory(parent.id);
   };
 
+  const handleChildChange = (e, children) => {
+    setSelectedChildCategory(children.id);
+  };
+
   const filteredChildrenCategory = categoryInfo.filter(
     (category) => parseInt(category.ancestry, 10) === selectedCategory,
   );
-
-  console.log(selectedCategory);
 
   return (
     <div>
@@ -44,13 +41,15 @@ const LeftColumn = ({ categoryInfo }) => {
                 <ul className="menuChildButton ">
                     {
                     filteredChildrenCategory.map((children) => (
-                      <li
-                        className="d-flex list-group-item"
+                      <button
+                        type="button"
+                        className="d-flex list-group-item "
                         key={children.id}
-                        href="/"
+                        selectedChild={children.id}
+                        onClick={(e) => handleChildChange(e, children)}
                       >
                         {children.name}
-                      </li>
+                      </button>
                     ))
                   }
                 </ul>
@@ -66,6 +65,7 @@ const LeftColumn = ({ categoryInfo }) => {
 
 LeftColumn.propTypes = {
   categoryInfo: PropTypes.arrayOf(PropTypes.array).isRequired,
+  setSelectedChildCategory: PropTypes.func.isRequired,
 };
 
 export default LeftColumn;

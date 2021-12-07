@@ -1,18 +1,22 @@
 /* eslint-disable max-len */
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-// import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import requestItemInfo, { requestCategoryInfo } from '../Helpers/requests';
 import ItemList from '../Containers/itemList';
 import LeftColumn from '../Containers/leftColumn';
-
-// import '../Assets/styles/homePage.css';
 
 const HomePage = () => {
   const itemData = useSelector((state) => state.items);
   const categoryData = useSelector((state) => state.category);
 
+  const [selectedChildCategory, setSelectedChildCategory] = useState('');
+
   const dispatch = useDispatch();
+
+  const filteredItems = itemData.itemsCollection.filter((item) => item.category_id === parseInt(selectedChildCategory, 10));
+  console.log(itemData.itemsCollection);
+
+  console.log(selectedChildCategory);
 
   useEffect(() => {
     requestItemInfo(dispatch);
@@ -25,13 +29,16 @@ const HomePage = () => {
         <LeftColumn
           key={categoryData.id}
           categoryInfo={categoryData.categoryCollection}
+          itemList={itemData}
+          setSelectedChildCategory={setSelectedChildCategory}
+          selectedChildCategory={selectedChildCategory}
         />
       </div>
       <div className="col-9 justify-content-center">
         <div>
           <ItemList
             key={itemData.id}
-            items={itemData.itemsCollection}
+            items={filteredItems}
           />
         </div>
       </div>

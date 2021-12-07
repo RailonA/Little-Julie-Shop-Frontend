@@ -27,3 +27,7 @@
   width: 150px;
   flex-direction: column;
 }
+
+.list-group-item {
+  color: black;
+}
