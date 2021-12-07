@@ -4,14 +4,14 @@ import UserProfile from '../Components/userProfile';
 import '../Assets/styles/navBar.css';
 
 const NavBar = ({ setSelectedChildCategory }) => {
-  const handleChildChange = () => {
+  const resetChildChange = () => {
     setSelectedChildCategory('');
   };
 
   return (
     <div className=" navBarWrapper d-flex mb-5 p-3 d-flex justify-content-between">
       <div className="col-s-3 ">
-        <Link to="/" onClick={handleChildChange}>
+        <Link to="/" onClick={resetChildChange}>
           <h2 className="pageTitle m-3 text-center">Little Julie Shop</h2>
         </Link>
       </div>

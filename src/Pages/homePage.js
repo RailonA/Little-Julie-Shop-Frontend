@@ -15,8 +15,7 @@ const HomePage = () => {
 
   const dispatch = useDispatch();
 
-  // const filteredItems = itemData.itemsCollection.filter((item) => item.category_id === parseInt(selectedChildCategory, 10));
-  const filteredItems = (itemData.itemsCollection !== '') ? itemData.itemsCollection.filter((item) => item.category_id === parseInt(selectedChildCategory, 10)) : itemData.itemsCollection;
+  const filteredItems = (selectedChildCategory !== '') ? itemData.itemsCollection.filter((item) => item.category_id === parseInt(selectedChildCategory, 10)) : itemData.itemsCollection;
 
   console.log(filteredItems);
 
