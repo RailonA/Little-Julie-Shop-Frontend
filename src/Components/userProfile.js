@@ -6,7 +6,6 @@ import { Button, Modal } from 'react-bootstrap';
 import { logoutAction } from '../Actions/user';
 import LoginForm from './loginForm';
 import SignUpForm from './signUpForm';
-import MenuButton from './menuButton';
 import { sendFeedbackAction } from '../Actions/feedback';
 import '../Assets/styles/navBar.css';
 
@@ -79,7 +78,6 @@ const UserProfile = () => {
           <div className="align-items-center flex-column flex-md-row d-flex  mr-3 navBarButtonColumn  ">
             <Button onClick={openLogin} className="navBarBtnColor d-flex justify-content-center m-2 bm-burger-1">LOGIN</Button>
             <Button type="button" onClick={openSignUp} className=" navBarBtnColor d-flex justify-content-center m-2 bm-burger-2">SIGN UP</Button>
-            <h3 className="navBarMenuColor d-flex justify-content-center d-md-none"><MenuButton /></h3>
           </div>
         )}
     </div>
