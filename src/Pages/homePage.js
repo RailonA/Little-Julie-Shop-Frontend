@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import requestItemInfo, { requestCategoryInfo } from '../Helpers/requests';
 import ItemList from '../Containers/itemList';
 import LeftColumn from '../Containers/leftColumn';
+import Nav from '../Containers/navBar';
+import '../Assets/styles/navBar.css';
 
 const HomePage = () => {
   const itemData = useSelector((state) => state.items);
@@ -13,10 +15,10 @@ const HomePage = () => {
 
   const dispatch = useDispatch();
 
-  const filteredItems = itemData.itemsCollection.filter((item) => item.category_id === parseInt(selectedChildCategory, 10));
-  console.log(itemData.itemsCollection);
+  // const filteredItems = itemData.itemsCollection.filter((item) => item.category_id === parseInt(selectedChildCategory, 10));
+  const filteredItems = (itemData.itemsCollection !== '') ? itemData.itemsCollection.filter((item) => item.category_id === parseInt(selectedChildCategory, 10)) : itemData.itemsCollection;
 
-  console.log(selectedChildCategory);
+  console.log(filteredItems);
 
   useEffect(() => {
     requestItemInfo(dispatch);
@@ -24,22 +26,28 @@ const HomePage = () => {
   }, [dispatch]);
 
   return (
-    <div className="d-flex container-fluid justify-content-center">
-      <div className="d-none d-sm-block col-3">
-        <LeftColumn
-          key={categoryData.id}
-          categoryInfo={categoryData.categoryCollection}
-          itemList={itemData}
-          setSelectedChildCategory={setSelectedChildCategory}
-          selectedChildCategory={selectedChildCategory}
-        />
-      </div>
-      <div className="col-9 justify-content-center">
-        <div>
-          <ItemList
-            key={itemData.id}
-            items={filteredItems}
+    <div className=" container-fluid justify-content-center">
+      <Nav
+        setSelectedChildCategory={setSelectedChildCategory}
+        selectedChildCategory={selectedChildCategory}
+      />
+      <div className="d-flex">
+        <div className="d-none d-sm-block col-3">
+          <LeftColumn
+            key={categoryData.id}
+            categoryInfo={categoryData.categoryCollection}
+            itemList={itemData}
+            setSelectedChildCategory={setSelectedChildCategory}
+            selectedChildCategory={selectedChildCategory}
           />
+        </div>
+        <div className="col-9 justify-content-center">
+          <div>
+            <ItemList
+              key={itemData.id}
+              items={filteredItems}
+            />
+          </div>
         </div>
       </div>
     </div>

@@ -4,6 +4,10 @@
   display: flex;
 }
 
+.container-fluid {
+  padding: 0;
+}
+
 .navBarMenuColor {
   color: pink;
 }
