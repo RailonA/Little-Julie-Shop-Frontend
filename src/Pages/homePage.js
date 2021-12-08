@@ -17,8 +17,6 @@ const HomePage = () => {
 
   const filteredItems = (selectedChildCategory !== '') ? itemData.itemsCollection.filter((item) => item.category_id === parseInt(selectedChildCategory, 10)) : itemData.itemsCollection;
 
-  console.log(filteredItems);
-
   useEffect(() => {
     requestItemInfo(dispatch);
     requestCategoryInfo(dispatch);
@@ -27,8 +25,12 @@ const HomePage = () => {
   return (
     <div className=" container-fluid justify-content-center">
       <Nav
+        key={categoryData.id}
+        itemList={itemData}
+        categoryInfo={categoryData.categoryCollection}
         setSelectedChildCategory={setSelectedChildCategory}
         selectedChildCategory={selectedChildCategory}
+
       />
       <div className="d-flex">
         <div className="d-none d-sm-block col-3">

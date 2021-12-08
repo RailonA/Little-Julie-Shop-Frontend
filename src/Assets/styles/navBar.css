@@ -39,6 +39,10 @@ a:active {
   text-decoration: none;
 }
 
+.menu {
+  width: 200px;
+}
+
 @media (max-width: 320px) {
   .navBarButtonColumn {
     margin-right: 100px;

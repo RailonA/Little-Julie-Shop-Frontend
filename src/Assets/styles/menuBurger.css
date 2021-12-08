@@ -133,3 +133,13 @@ Note: Beware of modifying this element as it can break the animations - you shou
     top: 106px;
   }
 }
+
+@media (min-width: 428px) {
+  .bm-burger-button {
+    position: fixed;
+    width: 36px;
+    height: 30px;
+    right: 10px;
+    top: 10px;
+  }
+}

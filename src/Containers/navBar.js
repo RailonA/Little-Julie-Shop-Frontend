@@ -10,6 +10,7 @@ import '../Assets/styles/navBar.css';
 
 const NavBar = ({ setSelectedChildCategory }) => {
   const categoryData = useSelector((state) => state.category);
+  const itemData = useSelector((state) => state.items);
 
   const resetChildChange = () => {
     setSelectedChildCategory('');
@@ -23,10 +24,15 @@ const NavBar = ({ setSelectedChildCategory }) => {
         </Link>
       </div>
       <div className="d-flex justify-content-end align-items-center m-4 p-3">
-        <Menu right>
+        <Menu
+          right
+          className="menu"
+        >
           <LeftColumn
             key={categoryData.id}
             categoryInfo={categoryData.categoryCollection}
+            itemList={itemData}
+            setSelectedChildCategory={setSelectedChildCategory}
           />
         </Menu>
         <UserProfile className="d-flex justify-content-around" />
