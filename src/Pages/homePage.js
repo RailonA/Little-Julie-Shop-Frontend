@@ -32,7 +32,7 @@ const HomePage = () => {
         selectedChildCategory={selectedChildCategory}
 
       />
-      <div className="d-flex">
+      <div className="d-flex justify-content-center">
         <div className="d-none d-sm-block col-3">
           <LeftColumn
             key={categoryData.id}
@@ -42,7 +42,7 @@ const HomePage = () => {
             selectedChildCategory={selectedChildCategory}
           />
         </div>
-        <div className="col-9 justify-content-center">
+        <div className="col-9 d-flex justify-content-center">
           <div>
             <ItemList
               key={itemData.id}
