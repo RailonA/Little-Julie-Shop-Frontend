@@ -23,18 +23,20 @@ const NavBar = ({ setSelectedChildCategory }) => {
           <h2 className="pageTitle m-3 text-center">Little Julie Shop</h2>
         </Link>
       </div>
-      <div className="d-flex justify-content-end align-items-center m-4 p-3">
-        <Menu
-          right
-          className="menu"
-        >
-          <LeftColumn
-            key={categoryData.id}
-            categoryInfo={categoryData.categoryCollection}
-            itemList={itemData}
-            setSelectedChildCategory={setSelectedChildCategory}
-          />
-        </Menu>
+      <div className="d-flex justify-content-end align-items-center m-4 p-3 ">
+        <div className="d-block d-md-none">
+          <Menu
+            right
+            className="menu"
+          >
+            <LeftColumn
+              key={categoryData.id}
+              categoryInfo={categoryData.categoryCollection}
+              itemList={itemData}
+              setSelectedChildCategory={setSelectedChildCategory}
+            />
+          </Menu>
+        </div>
         <UserProfile className="d-flex justify-content-around" />
       </div>
     </div>
