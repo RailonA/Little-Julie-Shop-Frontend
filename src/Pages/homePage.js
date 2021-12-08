@@ -6,6 +6,7 @@ import ItemList from '../Containers/itemList';
 import LeftColumn from '../Containers/leftColumn';
 import Nav from '../Containers/navBar';
 import '../Assets/styles/navBar.css';
+import '../Assets/styles/leftColumn.css';
 
 const HomePage = () => {
   const itemData = useSelector((state) => state.items);
@@ -23,7 +24,7 @@ const HomePage = () => {
   }, [dispatch]);
 
   return (
-    <div className=" container-fluid justify-content-center">
+    <div className="justify-content-center">
       <Nav
         key={categoryData.id}
         itemList={itemData}
@@ -33,7 +34,7 @@ const HomePage = () => {
 
       />
       <div className="d-flex justify-content-center">
-        <div className="d-none d-sm-block col-3">
+        <div className="d-none d-sm-block col-3 leftColumnWrapper">
           <LeftColumn
             key={categoryData.id}
             categoryInfo={categoryData.categoryCollection}
@@ -43,7 +44,7 @@ const HomePage = () => {
           />
         </div>
         <div className="col-9 d-flex justify-content-center">
-          <div>
+          <div className="mt-4">
             <ItemList
               key={itemData.id}
               items={filteredItems}

@@ -14,20 +14,9 @@
   box-shadow: 0.2px 0.2px 20px rgb(245, 157, 172);
 }
 
-.menuParentButton {
-  border: none;
-  width: 100px;
-  background-color: white;
-  flex-direction: column;
-}
-
-.menuChildButton {
-  border: none;
-  margin-left: -20%;
-  width: 150px;
-  flex-direction: column;
-}
-
 .list-group-item {
-  color: black;
+  color: pink;
+  border: none;
+  width: 180px;
+  margin-left: -50px;
 }

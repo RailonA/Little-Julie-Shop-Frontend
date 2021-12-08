@@ -1,0 +1,23 @@
+
+.leftColumnWrapper {
+  border-right: pink;
+  box-shadow: 0 10px 10px 10px rgb(250, 228, 232);
+}
+
+.menuParentButton {
+  border: none;
+  height: 60px;
+  width: 100px;
+  font-weight: bold;
+  background-color: white;
+  color: pink;
+  flex-direction: column;
+}
+
+.menuChildButton {
+  background-color: white;
+  color: pink;
+  border: none;
+  width: 100px;
+  flex-direction: column;
+}

@@ -14,7 +14,7 @@ a {
 
 /* Color/shape of close button cross */
 .bm-cross {
-  background: #bdc3c7;
+  background: pink;
   position: fixed;
   height: 100px;
   right: 10px;
@@ -28,15 +28,17 @@ Note: Beware of modifying this element as it can break the animations - you shou
 .bm-menu-wrap {
   position: fixed;
   height: 100%;
+  /* width: 2000px; */
   right: 100%;
   top: 36px;
 }
 
 /* General sidebar styles */
 .bm-menu {
-  background: rgb(141, 141, 141);
+  background: rgb(255, 255, 255);
   font-size: 1.15em;
   position: fixed;
+  width: 200px;
   height: 100%;
   right: 0;
 }
@@ -48,7 +50,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* Wrapper for item list */
 .bm-item-list {
-  color: #b8b7ad;
+  color: white;
   padding: 0.8em;
 }
 

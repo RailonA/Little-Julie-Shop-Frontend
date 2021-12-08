@@ -17,7 +17,7 @@ const NavBar = ({ setSelectedChildCategory }) => {
   };
 
   return (
-    <div className=" navBarWrapper d-flex mb-5 p-3 d-flex justify-content-between">
+    <div className=" navBarWrapper d-flex  p-3 d-flex justify-content-between">
       <div className="col-s-3 ">
         <Link to="/" onClick={resetChildChange}>
           <h2 className="pageTitle m-3 text-center">Little Julie Shop</h2>

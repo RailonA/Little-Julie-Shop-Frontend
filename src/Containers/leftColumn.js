@@ -22,7 +22,9 @@ const LeftColumn = ({ categoryInfo, setSelectedChildCategory }) => {
 
   return (
     <div>
-      <div>
+      <div
+        className="mt-5"
+      >
         {
             filteredParentCategory.map((parent) => (
               <div key="parent.id">
