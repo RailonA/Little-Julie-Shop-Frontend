@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
 import '../Assets/styles/itemList.css';
+import '../Assets/styles/leftColumn.css';
 
 const LeftColumn = ({ categoryInfo, setSelectedChildCategory }) => {
   const [selectedCategory, setSelectedCategory] = useState('');

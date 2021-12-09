@@ -2,6 +2,15 @@
 .leftColumnWrapper {
   border-right: pink;
   box-shadow: 0 10px 10px 10px rgb(250, 228, 232);
+  left: 0;
+  top: 0;
+  overflow: auto;
+  position: -webkit-sticky;
+  position: sticky;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .menuParentButton {
@@ -21,3 +30,7 @@
   width: 100px;
   flex-direction: column;
 }
+
+/* @media (min-width: 768px) {
+
+} */

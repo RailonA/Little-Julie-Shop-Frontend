@@ -23,8 +23,17 @@ const HomePage = () => {
     requestCategoryInfo(dispatch);
   }, [dispatch]);
 
+  // let stickySidebar = new StickySidebar('#sidebar', {
+  //   topSpacing: 20,
+  //   bottomSpacing: 20,
+  //   containerSelector: '.container',
+  //   innerWrapperSelector: '.sidebar__inner',
+  // });
+
   return (
-    <div className="justify-content-center">
+    <div
+      className="justify-content-center"
+    >
       <Nav
         key={categoryData.id}
         itemList={itemData}
@@ -33,8 +42,12 @@ const HomePage = () => {
         selectedChildCategory={selectedChildCategory}
 
       />
-      <div className="d-flex justify-content-center">
-        <div className="d-none d-sm-block col-3 leftColumnWrapper">
+      <div
+        className="d-flex justify-content-center"
+      >
+        <div
+          className="d-none d-sm-block col-3 leftColumnWrapper"
+        >
           <LeftColumn
             key={categoryData.id}
             categoryInfo={categoryData.categoryCollection}
