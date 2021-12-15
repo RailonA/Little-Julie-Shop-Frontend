@@ -4,12 +4,22 @@
   border-radius: 10px;
 }
 
-.itemPhotoContainer {
+.itemPhotoContainerFemale {
   border-radius: 10px;
   box-shadow: 0.2px 0.2px 20px rgb(245, 157, 172);
 }
 
-.itemCard {
+.itemPhotoContainerMale {
+  border-radius: 10px;
+  box-shadow: 0.2px 0.2px 20px rgb(111, 185, 255);
+}
+
+.itemCardFemale {
   border-radius: 10px;
   box-shadow: 0.2px 0.2px 20px rgb(245, 157, 172);
+}
+
+.itemCardMale {
+  border-radius: 10px;
+  box-shadow: 0.2px 0.2px 20px rgb(111, 185, 255);
 }

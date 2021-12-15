@@ -26,6 +26,8 @@ const HomePage = () => {
   const navBarWrapperDiv = (styleSheet === false) ? ('navBarWrapperFemale') : ('navBarWrapperMale');
   const pageTitle = (styleSheet === false) ? ('pageTitleFemale') : ('pageTitleMale');
   const navBarBtnColor = (styleSheet === false) ? ('navBarBtnColorFemale') : ('navBarBtnColorMale');
+  const itemPhotoContainer = (styleSheet === false) ? ('itemPhotoContainerFemale') : ('itemPhotoContainerMale');
+  const itemCard = (styleSheet === false) ? ('itemCardFemale') : ('itemCardMale');
 
   useEffect(() => {
     requestItemInfo(dispatch);
@@ -80,6 +82,8 @@ const HomePage = () => {
             <ItemList
               key={itemData.id}
               items={filteredItems}
+              itemCard={itemCard}
+              itemPhotoContainer={itemPhotoContainer}
             />
           </div>
         </div>
