@@ -28,7 +28,7 @@ const NavBar = ({
 
   return (
     <div className={navBarWrapperDiv}>
-      <div className="d-flex col-12 justify-content-between">
+      <div className="d-flex justify-content-between">
         <div className="col-s-3 ">
           <Link to="/" onClick={resetChildChange}>
             <div className="m-3 text-center">

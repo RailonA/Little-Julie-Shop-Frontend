@@ -4,26 +4,26 @@ a {
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: pink;
+  background: rgb(87, 87, 87);
 }
 
-/* Color/shape of burger icon bars */
+/* Color/shape of burger icon bars
 .bm-burger-bars-Female {
   background: pink;
 }
 
 .bm-burger-bars-Male {
   background: rgb(111, 185, 255);
-}
+} */
 
 /* Color/shape of burger icon bars on hover */
 .bm-burger-bars-hover {
-  background: rgb(255, 110, 134);
+  background: rgb(32, 32, 32);
 }
 
 /* Color/shape of close button cross */
 .bm-cross {
-  background: pink;
+  background: rgb(87, 87, 87);
   position: fixed;
   height: 100px;
   right: 10px;

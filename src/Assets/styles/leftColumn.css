@@ -1,5 +1,5 @@
 .leftColumnWrapperFemale {
-  box-shadow: 0  10px 10px 10px rgb(250, 228, 232);
+  box-shadow: 12px 0 15px -4px rgb(250, 228, 232);
   padding-left: 10px;
   left: 0;
   top: 0;
@@ -13,7 +13,7 @@
 }
 
 .leftColumnWrapperMale {
-  box-shadow: 0 10px 10px 10px rgb(111, 185, 255);
+  box-shadow: 12px 0 15px -4px rgb(111, 185, 255);
   padding-left: 10px;
   left: 0;
   top: 0;
