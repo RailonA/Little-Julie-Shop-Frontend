@@ -53,7 +53,7 @@ const LeftColumn = ({
                 </button>
                 {
                 selectedCategory === parent.id && (
-                <ul className="menuChildButton ">
+                <ul className="d-flex flex-column">
                     {
                     filteredChildrenCategory.map((children) => (
                       <button

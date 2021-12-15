@@ -1,15 +1,3 @@
-/* .leftColumnWrapper {
-  left: 0;
-  top: 0;
-  overflow: auto;
-  position: -webkit-sticky;
-  position: sticky;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-} */
-
 .leftColumnWrapperFemale {
   box-shadow: 0  10px 10px 10px rgb(250, 228, 232);
   padding-left: 10px;
