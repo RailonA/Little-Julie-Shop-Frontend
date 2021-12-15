@@ -12,7 +12,7 @@ const NavBar = ({
   setSelectedChildCategory,
   setSelectedCategory,
   selectedCategory,
-  styleSheet,
+  setStyleSheet,
   menuParentButton,
   menuChildButton,
   navBarWrapperDiv,
@@ -49,7 +49,7 @@ const NavBar = ({
                 setSelectedChildCategory={setSelectedChildCategory}
                 setSelectedCategory={setSelectedCategory}
                 selectedCategory={selectedCategory}
-                styleSheet={styleSheet}
+                setStyleSheet={setStyleSheet}
                 menuParentButton={menuParentButton}
                 menuChildButton={menuChildButton}
               />
@@ -67,7 +67,7 @@ NavBar.propTypes = {
   setSelectedCategory: PropTypes.func.isRequired,
   setSelectedChildCategory: PropTypes.func.isRequired,
   selectedCategory: PropTypes.func.isRequired,
-  styleSheet: PropTypes.func.isRequired,
+  setStyleSheet: PropTypes.func.isRequired,
   menuParentButton: PropTypes.func.isRequired,
   menuChildButton: PropTypes.func.isRequired,
   navBarWrapperDiv: PropTypes.func.isRequired,

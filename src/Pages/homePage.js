@@ -46,7 +46,6 @@ const HomePage = () => {
           setSelectedCategory={setSelectedCategory}
           selectedCategory={selectedCategory}
           setStyleSheet={setStyleSheet}
-          styleSheet={styleSheet}
           menuParentButton={menuParentButton}
           menuChildButton={menuChildButton}
           navBarWrapperDiv={navBarWrapperDiv}
@@ -71,7 +70,6 @@ const HomePage = () => {
               setSelectedCategory={setSelectedCategory}
               selectedCategory={selectedCategory}
               setStyleSheet={setStyleSheet}
-              styleSheet={styleSheet}
               menuParentButton={menuParentButton}
               menuChildButton={menuChildButton}
             />
