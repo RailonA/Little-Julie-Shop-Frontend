@@ -1,7 +1,18 @@
+/* .leftColumnWrapper {
+  left: 0;
+  top: 0;
+  overflow: auto;
+  position: -webkit-sticky;
+  position: sticky;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+} */
 
-.leftColumnWrapper {
-  border-right: pink;
-  box-shadow: 0 10px 10px 10px rgb(250, 228, 232);
+.leftColumnWrapperFemale {
+  box-shadow: 0  10px 10px 10px rgb(250, 228, 232);
+  padding-left: 10px;
   left: 0;
   top: 0;
   overflow: auto;
@@ -13,24 +24,54 @@
   height: 100vh;
 }
 
-.menuParentButton {
+.leftColumnWrapperMale {
+  box-shadow: 0 10px 10px 10px rgb(111, 185, 255);
+  padding-left: 10px;
+  left: 0;
+  top: 0;
+  overflow: auto;
+  position: -webkit-sticky;
+  position: sticky;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.menuParentButtonMale {
+  border: none;
+  height: 60px;
+  width: 100px;
+  font-weight: bold;
+  background-color: white;
+  color: rgb(111, 185, 255);
+  display: flex;
+  flex-direction: column;
+}
+
+.menuParentButtonFemale {
   border: none;
   height: 60px;
   width: 100px;
   font-weight: bold;
   background-color: white;
   color: pink;
+  display: flex;
   flex-direction: column;
 }
 
-.menuChildButton {
-  background-color: white;
+.menuChildButtonFemale {
   color: pink;
+  background-color: white;
   border: none;
-  width: 100px;
-  flex-direction: column;
+  width: 180px;
+  margin-left: -50px;
 }
 
-/* @media (min-width: 768px) {
-
-} */
+.menuChildButtonMale {
+  color: rgb(111, 185, 255);
+  background-color: white;
+  border: none;
+  width: 180px;
+  margin-left: -50px;
+}

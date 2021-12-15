@@ -1,26 +1,39 @@
-.navBarWrapper {
-  border-bottom: 1px solid pink;
+.navBarWrapperFemale {
   box-shadow: 0 10px 10px 2px rgb(250, 228, 232);
-  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.navBarWrapperMale {
+  box-shadow: 0 10px 10px 2px rgb(111, 185, 255);
+  padding: 0;
+  margin: 0;
 }
 
 .container-fluid {
   padding: 0;
 }
 
-.navBarMenuColor {
-  color: pink;
-}
-
-.navBarBtnColor {
+.navBarBtnColorFemale {
   background-color: pink;
   border: none;
 }
 
-.pageTitle {
+.navBarBtnColorMale {
+  background-color: rgb(111, 185, 255);
+  border: none;
+}
+
+.pageTitleFemale {
   font-family: 'Lobster Two', cursive;
   font-size: 50px;
   color: pink;
+}
+
+.pageTitleMale {
+  font-family: 'Lobster Two', cursive;
+  font-size: 50px;
+  color: rgb(111, 185, 255);
 }
 
 a:visited {

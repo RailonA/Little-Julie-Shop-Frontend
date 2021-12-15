@@ -7,6 +7,15 @@ a {
   background: pink;
 }
 
+/* Color/shape of burger icon bars */
+.bm-burger-bars-Female {
+  background: pink;
+}
+
+.bm-burger-bars-Male {
+  background: rgb(111, 185, 255);
+}
+
 /* Color/shape of burger icon bars on hover */
 .bm-burger-bars-hover {
   background: rgb(255, 110, 134);

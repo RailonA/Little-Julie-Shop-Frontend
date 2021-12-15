@@ -13,10 +13,3 @@
   border-radius: 10px;
   box-shadow: 0.2px 0.2px 20px rgb(245, 157, 172);
 }
-
-.list-group-item {
-  color: pink;
-  border: none;
-  width: 180px;
-  margin-left: -50px;
-}

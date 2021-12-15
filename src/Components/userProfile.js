@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Modal } from 'react-bootstrap';
@@ -8,7 +9,7 @@ import SignUpForm from './signUpForm';
 import { sendFeedbackAction } from '../Actions/feedback';
 import '../Assets/styles/navBar.css';
 
-const UserProfile = () => {
+const UserProfile = ({ navBarBtnColor }) => {
   const dispatch = useDispatch();
   const userData = useSelector((state) => state.currentUser);
 
@@ -75,12 +76,20 @@ const UserProfile = () => {
         )
         : (
           <div className="align-items-center flex-column flex-md-row d-flex  mr-3 navBarButtonColumn  ">
-            <Button onClick={openLogin} className="navBarBtnColor d-flex justify-content-center m-2 bm-burger-1">LOGIN</Button>
-            <Button type="button" onClick={openSignUp} className=" navBarBtnColor d-flex justify-content-center m-2 bm-burger-2">SIGN UP</Button>
+            <div className="d-flex justify-content-center m-2 bm-burger-1">
+              <Button onClick={openLogin} className={navBarBtnColor}>LOGIN</Button>
+            </div>
+            <div className=" navBarBtnColor d-flex justify-content-center m-2 bm-burger-2">
+              <Button type="button" onClick={openSignUp} className={navBarBtnColor}>SIGN UP</Button>
+            </div>
           </div>
         )}
     </div>
   );
+};
+
+UserProfile.propTypes = {
+  navBarBtnColor: PropTypes.func.isRequired,
 };
 
 export default UserProfile;
