@@ -1,68 +1,85 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import { requestUserInfo } from '../Helpers/requests';
-
-import '../Assets/styles/userPage.css';
+/* eslint-disable max-len */
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
+import requestItemInfo, { requestCategoryInfo } from '../Helpers/requests';
+// import ItemList from '../Containers/itemList';
+import LeftColumn from '../Containers/leftColumn';
+import Nav from '../Containers/navBar';
+import '../Assets/styles/navBar.css';
+import '../Assets/styles/leftColumn.css';
 
 const UserPage = () => {
-  const userData = useSelector((state) => state.currentUser);
+  const itemData = useSelector((state) => state.items);
+  const categoryData = useSelector((state) => state.category);
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [styleSheet, setStyleSheet] = useState(true);
+
+  const [selectedChildCategory, setSelectedChildCategory] = useState('');
+
   const dispatch = useDispatch();
 
+  // const filteredItems = (selectedChildCategory !== '') ? itemData.itemsCollection.filter((item) => item.category_id === parseInt(selectedChildCategory, 10)) : itemData.itemsCollection;
+
+  const menuParentButton = (styleSheet === false) ? ('menuParentButtonFemale') : ('menuParentButtonMale');
+  const menuChildButton = (styleSheet === false) ? ('menuChildButtonFemale') : ('menuChildButtonMale');
+  const leftColumnWrapper = (styleSheet === false) ? ('leftColumnWrapperFemale') : ('leftColumnWrapperMale');
+  const navBarWrapperDiv = (styleSheet === false) ? ('navBarWrapperFemale') : ('navBarWrapperMale');
+  const pageTitle = (styleSheet === false) ? ('pageTitleFemale') : ('pageTitleMale');
+  const navBarBtnColor = (styleSheet === false) ? ('navBarBtnColorFemale') : ('navBarBtnColorMale');
+  // const itemPhotoContainer = (styleSheet === false) ? ('itemPhotoContainerFemale') : ('itemPhotoContainerMale');
+  // const itemCard = (styleSheet === false) ? ('itemCardFemale') : ('itemCardMale');
+
   useEffect(() => {
-    requestUserInfo(dispatch, userData.id);
+    requestItemInfo(dispatch);
+    requestCategoryInfo(dispatch);
   }, [dispatch]);
 
-  const redirectTo404 = (userData) => {
-    if (!userData.id) {
-      return <Redirect to="/" />;
-    }
-    return null;
-  };
-
-  const bookedAppointment = () => {
-    if (userData.appointments[0]) {
-      return (
-        userData.appointments.map((appointments) => (
-          <div className="col-10" key={appointments.id}>
-            <div className="d-flex col-12">
-              <p className="mr-3 col-3 font-weight-bold">Service Requested:</p>
-              <p>
-                {appointments.service.petService}
-              </p>
-            </div>
-            <div className="d-flex col-12">
-              <p className="mr-3 col-3 font-weight-bold">Service Description:</p>
-              <p className="d-flex">
-                {appointments.service.serviceDescription}
-              </p>
-            </div>
-            <div className="d-flex col-12">
-              <p className="mr-3 col-3 font-weight-bold">Service Price:</p>
-              <p>{appointments.service.servicePrice}</p>
-            </div>
-            <div className="d-flex col-12">
-              <p className="mr-3 col-3 font-weight-bold">Appointments Date:</p>
-            </div>
-            <hr className=" col-12 tm-4 tb-4 mainHr" />
-          </div>
-        )));
-    }
-    return <p className="noReservations">No Appointments made.</p>;
-  };
-
   return (
-    <div>
-      {redirectTo404(userData)}
-      <div className="User">
-        <p className="username">
-          <strong>Username: </strong>
-          <span>{userData.username}</span>
-        </p>
-        <h4>Your Appointments:</h4>
-        { userData.loading
-          ? <span className="loading">Loading...</span>
-          : bookedAppointment(userData.reservations)}
+    <div className="justify-content-center">
+      <div>
+        <Nav
+          key={categoryData.id}
+          itemList={itemData}
+          categoryInfo={categoryData.categoryCollection}
+          setSelectedChildCategory={setSelectedChildCategory}
+          selectedChildCategory={selectedChildCategory}
+          setSelectedCategory={setSelectedCategory}
+          selectedCategory={selectedCategory}
+          setStyleSheet={setStyleSheet}
+          menuParentButton={menuParentButton}
+          menuChildButton={menuChildButton}
+          navBarWrapperDiv={navBarWrapperDiv}
+          pageTitle={pageTitle}
+          navBarBtnColor={navBarBtnColor}
+        />
+      </div>
+      <div className="d-flex justify-content-center">
+        <div
+          className="d-none d-sm-block col-3 m-0 p-0 pr-2"
+        >
+          <div
+            className={leftColumnWrapper}
+          >
+            <LeftColumn
+              key={categoryData.id}
+              itemList={itemData}
+              className={leftColumnWrapper}
+              categoryInfo={categoryData.categoryCollection}
+              setSelectedChildCategory={setSelectedChildCategory}
+              selectedChildCategory={selectedChildCategory}
+              setSelectedCategory={setSelectedCategory}
+              selectedCategory={selectedCategory}
+              setStyleSheet={setStyleSheet}
+              menuParentButton={menuParentButton}
+              menuChildButton={menuChildButton}
+            />
+          </div>
+        </div>
+        <div className="col-9 d-flex justify-content-center">
+          <div className="mt-4">
+            <h1>TEST</h1>
+          </div>
+        </div>
       </div>
     </div>
   );

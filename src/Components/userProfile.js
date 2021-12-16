@@ -71,7 +71,7 @@ const UserProfile = ({ navBarBtnColor }) => {
         ? (
           <div className="align-items-center flex-column d-flex justify-content-center mr-3 navBarButtonColumn">
             <Link to="/user/:id" className="d-flex justify-content-center "><Button className=" ">{userData.username}</Button></Link>
-            <Button type="button" name="logout" className="d-flex justify-content-center" onClick={handleLogout}>LOGOUT</Button>
+            <Link to="/" className="d-flex justify-content-center "><Button type="button" name="logout" className="d-flex justify-content-center" onClick={handleLogout}>LOGOUT</Button></Link>
           </div>
         )
         : (

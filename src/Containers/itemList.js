@@ -14,8 +14,6 @@ const ItemList = ({ items, itemPhotoContainer, itemCard }) => {
   });
 
   const getImage = (blobKey) => cld.image(blobKey).toURL();
-  // className="d-flex col-sm-4 m-4"
-  // className={itemCard}
   return (
     <div className="d-flex row justify-content-around">
       {
