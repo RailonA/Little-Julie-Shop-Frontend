@@ -18,7 +18,7 @@ const HomePage = () => {
 
   const dispatch = useDispatch();
 
-  const filteredItems = (selectedChildCategory !== '') ? itemData.itemsCollection.filter((item) => item.category_id === parseInt(selectedChildCategory, 10)) : itemData.itemsCollection;
+  const filteredItems = (selectedChildCategory !== '') ? itemData.itemsCollection.filter((item) => item.categories_id === parseInt(selectedChildCategory, 10)) : itemData.itemsCollection;
 
   const menuParentButton = (styleSheet === false) ? ('menuParentButtonFemale') : ('menuParentButtonMale');
   const menuChildButton = (styleSheet === false) ? ('menuChildButtonFemale') : ('menuChildButtonMale');

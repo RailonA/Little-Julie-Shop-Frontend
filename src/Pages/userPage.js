@@ -18,16 +18,12 @@ const UserPage = () => {
 
   const dispatch = useDispatch();
 
-  // const filteredItems = (selectedChildCategory !== '') ? itemData.itemsCollection.filter((item) => item.category_id === parseInt(selectedChildCategory, 10)) : itemData.itemsCollection;
-
   const menuParentButton = (styleSheet === false) ? ('menuParentButtonFemale') : ('menuParentButtonMale');
   const menuChildButton = (styleSheet === false) ? ('menuChildButtonFemale') : ('menuChildButtonMale');
   const leftColumnWrapper = (styleSheet === false) ? ('leftColumnWrapperFemale') : ('leftColumnWrapperMale');
   const navBarWrapperDiv = (styleSheet === false) ? ('navBarWrapperFemale') : ('navBarWrapperMale');
   const pageTitle = (styleSheet === false) ? ('pageTitleFemale') : ('pageTitleMale');
   const navBarBtnColor = (styleSheet === false) ? ('navBarBtnColorFemale') : ('navBarBtnColorMale');
-  // const itemPhotoContainer = (styleSheet === false) ? ('itemPhotoContainerFemale') : ('itemPhotoContainerMale');
-  // const itemCard = (styleSheet === false) ? ('itemCardFemale') : ('itemCardMale');
 
   useEffect(() => {
     requestItemInfo(dispatch);
