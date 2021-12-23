@@ -7,16 +7,16 @@ import Feedback from './Components/feedback';
 import { setFeedbackInactiveAction } from './Actions/feedback';
 
 function App() {
-  const dispatch = useDispatch();
+  const DISPATCH = useDispatch();
   const feedbackData = useSelector((state) => state.feedback);
 
   const closeError = () => {
-    dispatch(setFeedbackInactiveAction());
+    DISPATCH(setFeedbackInactiveAction());
   };
 
   useEffect(() => {
-    requestServiceInfo(dispatch);
-  }, [dispatch]);
+    requestServiceInfo(DISPATCH);
+  }, [DISPATCH]);
 
   useEffect(() => {
     if (feedbackData.active) {

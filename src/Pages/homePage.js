@@ -12,7 +12,7 @@ const HomePage = () => {
   const itemData = useSelector((state) => state.items);
   const categoryData = useSelector((state) => state.category);
   const [selectedCategory, setSelectedCategory] = useState('');
-  const [styleSheet, setStyleSheet] = useState(true);
+  const [styleSheet, setStyleSheet] = useState(false);
 
   const [selectedChildCategory, setSelectedChildCategory] = useState('');
 

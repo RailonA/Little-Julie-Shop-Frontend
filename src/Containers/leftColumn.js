@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
 import '../Assets/styles/itemList.css';
 import '../Assets/styles/leftColumn.css';
 
@@ -18,18 +19,29 @@ const LeftColumn = ({
     setSelectedChildCategory(children.id);
   };
 
+  if (selectedCategory === 1 || selectedCategory === 3) {
+    setStyleSheet(false);
+  } else if (selectedCategory === 2 || selectedCategory === 4) {
+    setStyleSheet(true);
+  }
+
   const handleParentChange = (e, parent) => {
     setSelectedCategory(parent.id);
-    if (selectedCategory === 1 || selectedCategory === 3) {
-      setStyleSheet(false);
-    } else if (selectedCategory === 2 || selectedCategory === 4) {
-      setStyleSheet(true);
-    }
   };
 
   const filteredChildrenCategory = categoryInfo.filter(
     (category) => parseInt(category.ancestry, 10) === selectedCategory,
   );
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (selectedCategory === 1 || selectedCategory === 3) {
+      setStyleSheet(false);
+    } else if (selectedCategory === 2 || selectedCategory === 4) {
+      setStyleSheet(true);
+    }
+  }, [dispatch]);
 
   return (
     <div>
