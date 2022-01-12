@@ -20,10 +20,10 @@ import { sendFeedbackAction } from '../Actions/feedback';
 import handleError from './handleError';
 
 const requests = {
-  users: 'https://littlejulieshopdatabase.herokuapp.com/api/v1/users',
-  login: 'https://littlejulieshopdatabase.herokuapp.com/api/v1/login',
-  items: 'https://littlejulieshopdatabase.herokuapp.com/api/v1/items',
-  categories: 'https://littlejulieshopdatabase.herokuapp.com//api/v1/categories',
+  users: 'http://localhost:3000/api/v1/users',
+  login: 'http://localhost:3000/api/v1/login',
+  items: 'http://localhost:3000/api/v1/items',
+  categories: 'http://localhost:3000/api/v1/categories',
 };
 
 export const requestUserInfo = async (dispatch, id, token) => {
