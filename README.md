@@ -3,7 +3,7 @@
 
 ## Watch the Live Version
 
-[Live Demo](https://littlejulieshop.herokuapp.com/)
+[Live Demo : Little Julie Shop](https://littlejulieshop.herokuapp.com/)
 
 ![screenshot1](./src/Assets/images/FemaleHomePageScreenshot.png)
 
