@@ -9,7 +9,7 @@
 
 ![screenshot2](./src/Assets/images/MaleHomePageScreenshot.png)
 
-![screenshot3](./src/Assets/images/(LoginScreen).png)
+![screenshot3](./src/Assets/images/LoginScreen.png)
 
 ### Built with
 - JavaScript ES6
