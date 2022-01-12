@@ -12,7 +12,7 @@ const ItemList = ({ items, itemPhotoContainer, itemCard }) => {
       secure: true, // force https, set to false to force http
     },
   });
-
+  console.log(items);
   const getImage = (blobKey) => cld.image(blobKey).toURL();
   return (
     <div className="d-flex row justify-content-around">
