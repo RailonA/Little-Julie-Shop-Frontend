@@ -69,17 +69,21 @@ const UserProfile = ({ navBarBtnColor }) => {
         : null }
       {userData.username
         ? (
-          <div className="align-items-center flex-column d-flex justify-content-center mr-3 navBarButtonColumn">
-            <Link to="/user/:id" className="d-flex justify-content-center "><Button className=" ">{userData.username}</Button></Link>
-            <Link to="/" className="d-flex justify-content-center "><Button type="button" name="logout" className="d-flex justify-content-center" onClick={handleLogout}>LOGOUT</Button></Link>
+          <div className="align-items-center flex-column flex-md-row d-flex  mr-3 navBarButtonColumn  ">
+            <Link to="/user/:id" className="d-flex justify-content-center m-2 ">
+              <Button className={navBarBtnColor}>{userData.username}</Button>
+            </Link>
+            <Link to="/" className="d-flex justify-content-center m-2 ">
+              <Button type="button" name="logout" className={navBarBtnColor} onClick={handleLogout}>LOGOUT</Button>
+            </Link>
           </div>
         )
         : (
           <div className="align-items-center flex-column flex-md-row d-flex  mr-3 navBarButtonColumn  ">
-            <div className="d-flex justify-content-center m-2 bm-burger-1">
+            <div className="d-flex justify-content-center m-2 ">
               <Button onClick={openLogin} className={navBarBtnColor}>LOGIN</Button>
             </div>
-            <div className=" navBarBtnColor d-flex justify-content-center m-2 bm-burger-2">
+            <div className=" d-flex justify-content-center m-2 ">
               <Button type="button" onClick={openSignUp} className={navBarBtnColor}>SIGN UP</Button>
             </div>
           </div>
