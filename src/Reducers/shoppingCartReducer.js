@@ -5,7 +5,7 @@ import {
 } from '../Constants/actions';
 
 const initialState = {
-  itemsCollection: [],
+  shoppingCartCollection: [],
 };
 
 const shoppingCartReducer = (state = initialState, action) => {
@@ -13,7 +13,7 @@ const shoppingCartReducer = (state = initialState, action) => {
     case GET_SHOPPNGCARTS_REQUEST:
       return { ...state, loading: true };
     case GET_SHOPPNGCARTS_SUCCESS:
-      return { ...state, itemsCollection: action.payload, loading: false };
+      return { ...state, shoppingCartCollection: action.payload, loading: false };
     case GET_SHOPPNGCARTS_FAILURE:
       return { ...state, loading: false };
     default:
