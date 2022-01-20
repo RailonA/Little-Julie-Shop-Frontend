@@ -5,7 +5,7 @@ const handleError = (dispatch, action, error) => {
   const loginProblems = action === 'login';
   const userInfoProblems = action === 'userInfo';
   const itemProblems = action === 'item';
-  // const purchaseProblems = action === 'purchase';
+  const shoppingCartsProblems = action === 'shoppingCarts';
 
   if (signupProblems && error.response.status === 422) {
     dispatch(sendFeedbackAction({ type: 'error', feedback: error.response.data.error }));
@@ -28,14 +28,14 @@ const handleError = (dispatch, action, error) => {
     dispatch(sendFeedbackAction({ type: 'error', feedback: error.response.data.error }));
   }
 
-  // if (purchaseProblems) {
-  //   if (error.response.status === 401) {
-  //     dispatch(sendFeedbackAction({ type: 'error', feedback: error.response.data.error }));
-  //   }
-  //   if (error.response.status === 422) {
-  //     dispatch(sendFeedbackAction({ type: 'error', feedback: 'Appointment already reserved' }));
-  //   }
-  // }
+  if (shoppingCartsProblems) {
+    if (error.response.status === 401) {
+      dispatch(sendFeedbackAction({ type: 'error', feedback: error.response.data.error }));
+    }
+    if (error.response.status === 422) {
+      dispatch(sendFeedbackAction({ type: 'error', feedback: 'Appointment already reserved' }));
+    }
+  }
 };
 
 export default handleError;

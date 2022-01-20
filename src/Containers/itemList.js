@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 import '../Assets/styles/itemList.css';
 
 const ItemList = ({
-  items, itemPhotoContainer, itemCard, buyButton,
+  items, itemPhotoContainer, itemCard, buyButton, addToShoppingCart,
 }) => {
   const cld = new Cloudinary({
     cloud: {
@@ -47,7 +47,14 @@ const ItemList = ({
                     <p className=" ">{ items.itemPrice }</p>
                   </div>
                   <div className="d-flex flex-row-reverse">
-                    <Button type="button" name="buy" className={buyButton}>Buy</Button>
+                    <Button
+                      type="button"
+                      name="buy"
+                      className={buyButton}
+                      onChange={(e) => addToShoppingCart(e)}
+                    >
+                      Buy
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -64,6 +71,7 @@ ItemList.propTypes = {
   itemPhotoContainer: PropTypes.func.isRequired,
   itemCard: PropTypes.func.isRequired,
   buyButton: PropTypes.func.isRequired,
+  addToShoppingCart: PropTypes.func.isRequired,
 
 };
 

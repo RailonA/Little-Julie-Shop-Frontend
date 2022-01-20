@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
-import requestItemInfo, { requestCategoryInfo } from '../Helpers/requests';
+import requestItemInfo, { requestCategoryInfo, requestShoppingCart } from '../Helpers/requests';
 import ItemList from '../Containers/itemList';
 import LeftColumn from '../Containers/leftColumn';
 import Nav from '../Containers/navBar';
@@ -9,14 +9,28 @@ import '../Assets/styles/navBar.css';
 import '../Assets/styles/leftColumn.css';
 
 const HomePage = () => {
+  let itemId;
   const itemData = useSelector((state) => state.items);
   const categoryData = useSelector((state) => state.category);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [styleSheet, setStyleSheet] = useState(false);
 
-  const [selectedChildCategory, setSelectedChildCategory] = useState('');
+  const shoppingCartData = useSelector((state) => state.shoppingCart);
+  const [selectedShoppingCartItem, setSelectedShoppingCartItem] = useState('');
+  const userData = useSelector((state) => state.currentUser);
 
   const dispatch = useDispatch();
+
+  const addToShoppingCart = (e) => {
+    itemId = e.target.value;
+    setSelectedShoppingCartItem(itemId);
+    requestShoppingCart(
+      dispatch, userData.id, selectedShoppingCartItem, userData.token,
+    );
+  };
+
+  console.log(shoppingCartData);
+  const [selectedChildCategory, setSelectedChildCategory] = useState('');
 
   const filteredItems = (selectedChildCategory !== '') ? itemData.itemsCollection.filter((item) => item.categories_id === parseInt(selectedChildCategory, 10)) : itemData.itemsCollection;
 
@@ -82,8 +96,9 @@ const HomePage = () => {
               key={itemData.id}
               items={filteredItems}
               itemCard={itemCard}
-              buyButton={buyButton}
               itemPhotoContainer={itemPhotoContainer}
+              buyButton={buyButton}
+              addToShoppingCart={addToShoppingCart}
             />
           </div>
         </div>

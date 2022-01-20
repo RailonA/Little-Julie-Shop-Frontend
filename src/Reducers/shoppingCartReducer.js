@@ -1,7 +1,7 @@
 import {
-  GET_SHOPPNGCARTS_REQUEST,
-  GET_SHOPPNGCARTS_SUCCESS,
-  GET_SHOPPNGCARTS_FAILURE,
+  GET_SHOPPINGCARTS_REQUEST,
+  GET_SHOPPINGCARTS_SUCCESS,
+  GET_SHOPPINGCARTS_FAILURE,
 } from '../Constants/actions';
 
 const initialState = {
@@ -10,11 +10,11 @@ const initialState = {
 
 const shoppingCartReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_SHOPPNGCARTS_REQUEST:
+    case GET_SHOPPINGCARTS_REQUEST:
       return { ...state, loading: true };
-    case GET_SHOPPNGCARTS_SUCCESS:
+    case GET_SHOPPINGCARTS_SUCCESS:
       return { ...state, shoppingCartCollection: action.payload, loading: false };
-    case GET_SHOPPNGCARTS_FAILURE:
+    case GET_SHOPPINGCARTS_FAILURE:
       return { ...state, loading: false };
     default:
       return state;

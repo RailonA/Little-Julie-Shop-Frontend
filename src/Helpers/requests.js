@@ -15,6 +15,11 @@ import {
   getCategorySuccess,
   getCategoryFailure,
 } from '../Actions/category';
+import {
+  getShoppingCartRequest,
+  getShoppingCartSuccess,
+  getShoppingCartFailure,
+} from '../Actions/shoppingCart';
 
 import { sendFeedbackAction } from '../Actions/feedback';
 import handleError from './handleError';
@@ -24,6 +29,7 @@ const requests = {
   login: 'http://localhost:3000/api/v1/login',
   items: 'http://localhost:3000/api/v1/items',
   categories: 'http://localhost:3000/api/v1/categories',
+  shoppingCarts: 'http://localhost:3000/api/v1/shoppingcarts',
 };
 
 export const requestUserInfo = async (dispatch, id, token) => {
@@ -93,6 +99,38 @@ export const requestCategoryInfo = async (dispatch) => {
   } catch (error) {
     dispatch(getCategoryFailure);
     handleError(dispatch, 'categories', error);
+  }
+};
+
+export const requestShoppingCart = async (
+  dispatch, userId, itemId, token,
+) => {
+  try {
+    await axios.post(requests.shoppingCarts,
+      {
+        user_id: userId,
+        item_id: itemId,
+      },
+      {
+        headers: {
+          Authorization: token,
+        },
+      });
+    dispatch(sendFeedbackAction({ type: 'success', feedback: 'You successfully reserved appointment.' }));
+  } catch (error) {
+    handleError(dispatch, 'shoppingCarts', error);
+  }
+};
+
+export const requestAppointmentInfo = async (dispatch) => {
+  try {
+    dispatch(getShoppingCartRequest());
+    const response = await axios.get(requests.shoppingCarts);
+    dispatch(getShoppingCartSuccess(response.data));
+    // console.log(response.data);
+  } catch (error) {
+    dispatch(getShoppingCartFailure);
+    handleError(dispatch, 'shoppingCarts', error);
   }
 };
 

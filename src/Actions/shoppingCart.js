@@ -1,18 +1,18 @@
 import {
-  GET_SHOPPNGCARTS_REQUEST,
-  GET_SHOPPNGCARTS_SUCCESS,
-  GET_SHOPPNGCARTS_FAILURE,
+  GET_SHOPPINGCARTS_REQUEST,
+  GET_SHOPPINGCARTS_SUCCESS,
+  GET_SHOPPINGCARTS_FAILURE,
 } from '../Constants/actions';
 
 export const getShoppingCartRequest = () => ({
-  type: GET_SHOPPNGCARTS_REQUEST,
+  type: GET_SHOPPINGCARTS_REQUEST,
 });
 
 export const getShoppingCartSuccess = (data) => ({
-  type: GET_SHOPPNGCARTS_SUCCESS,
+  type: GET_SHOPPINGCARTS_SUCCESS,
   payload: data,
 });
 
 export const getShoppingCartFailure = () => ({
-  type: GET_SHOPPNGCARTS_FAILURE,
+  type: GET_SHOPPINGCARTS_FAILURE,
 });
