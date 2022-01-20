@@ -1,8 +1,12 @@
 import PropTypes from 'prop-types';
 import { Cloudinary } from '@cloudinary/url-gen';
+import { Button } from 'react-bootstrap';
+
 import '../Assets/styles/itemList.css';
 
-const ItemList = ({ items, itemPhotoContainer, itemCard }) => {
+const ItemList = ({
+  items, itemPhotoContainer, itemCard, buyButton,
+}) => {
   const cld = new Cloudinary({
     cloud: {
       cloudName: 'caged-trees',
@@ -12,8 +16,9 @@ const ItemList = ({ items, itemPhotoContainer, itemCard }) => {
       secure: true, // force https, set to false to force http
     },
   });
-  console.log(items);
+
   const getImage = (blobKey) => cld.image(blobKey).toURL();
+
   return (
     <div className="d-flex row justify-content-around">
       {
@@ -41,6 +46,9 @@ const ItemList = ({ items, itemPhotoContainer, itemCard }) => {
                     <p className="mr-2 font-weight-bold">Price: $</p>
                     <p className=" ">{ items.itemPrice }</p>
                   </div>
+                  <div className="d-flex flex-row-reverse">
+                    <Button type="button" name="buy" className={buyButton}>Buy</Button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -55,6 +63,8 @@ ItemList.propTypes = {
   items: PropTypes.arrayOf(PropTypes.array).isRequired,
   itemPhotoContainer: PropTypes.func.isRequired,
   itemCard: PropTypes.func.isRequired,
+  buyButton: PropTypes.func.isRequired,
+
 };
 
 export default ItemList;

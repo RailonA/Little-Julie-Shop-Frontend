@@ -28,6 +28,7 @@ const HomePage = () => {
   const navBarBtnColor = (styleSheet === false) ? ('navBarBtnColorFemale') : ('navBarBtnColorMale');
   const itemPhotoContainer = (styleSheet === false) ? ('itemPhotoContainerFemale') : ('itemPhotoContainerMale');
   const itemCard = (styleSheet === false) ? ('itemCardFemale') : ('itemCardMale');
+  const buyButton = (styleSheet === false) ? ('buyButtonFemale') : ('buyButtonMale');
 
   useEffect(() => {
     requestItemInfo(dispatch);
@@ -81,6 +82,7 @@ const HomePage = () => {
               key={itemData.id}
               items={filteredItems}
               itemCard={itemCard}
+              buyButton={buyButton}
               itemPhotoContainer={itemPhotoContainer}
             />
           </div>

@@ -11,6 +11,9 @@ import '../Assets/styles/leftColumn.css';
 const UserPage = () => {
   const itemData = useSelector((state) => state.items);
   const categoryData = useSelector((state) => state.category);
+  const shoppingCartData = useSelector((state) => state.shoppingCart);
+  console.log(shoppingCartData);
+
   const [selectedCategory, setSelectedCategory] = useState('');
   const [styleSheet, setStyleSheet] = useState(true);
 
