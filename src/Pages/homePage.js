@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import requestItemInfo, { requestCategoryInfo, requestShoppingCart } from '../Helpers/requests';
 import ItemList from '../Containers/itemList';
 import LeftColumn from '../Containers/leftColumn';
-import Nav from '../Containers/navBar';
 import '../Assets/styles/navBar.css';
 import '../Assets/styles/leftColumn.css';
 
@@ -37,9 +36,6 @@ const HomePage = () => {
   const menuParentButton = (styleSheet === false) ? ('menuParentButtonFemale') : ('menuParentButtonMale');
   const menuChildButton = (styleSheet === false) ? ('menuChildButtonFemale') : ('menuChildButtonMale');
   const leftColumnWrapper = (styleSheet === false) ? ('leftColumnWrapperFemale') : ('leftColumnWrapperMale');
-  const navBarWrapperDiv = (styleSheet === false) ? ('navBarWrapperFemale') : ('navBarWrapperMale');
-  const pageTitle = (styleSheet === false) ? ('pageTitleFemale') : ('pageTitleMale');
-  const navBarBtnColor = (styleSheet === false) ? ('navBarBtnColorFemale') : ('navBarBtnColorMale');
   const itemPhotoContainer = (styleSheet === false) ? ('itemPhotoContainerFemale') : ('itemPhotoContainerMale');
   const itemCard = (styleSheet === false) ? ('itemCardFemale') : ('itemCardMale');
   const buyButton = (styleSheet === false) ? ('buyButtonFemale') : ('buyButtonMale');
@@ -51,23 +47,7 @@ const HomePage = () => {
 
   return (
     <div className="justify-content-center">
-      <div>
-        <Nav
-          key={categoryData.id}
-          itemList={itemData}
-          categoryInfo={categoryData.categoryCollection}
-          setSelectedChildCategory={setSelectedChildCategory}
-          selectedChildCategory={selectedChildCategory}
-          setSelectedCategory={setSelectedCategory}
-          selectedCategory={selectedCategory}
-          setStyleSheet={setStyleSheet}
-          menuParentButton={menuParentButton}
-          menuChildButton={menuChildButton}
-          navBarWrapperDiv={navBarWrapperDiv}
-          pageTitle={pageTitle}
-          navBarBtnColor={navBarBtnColor}
-        />
-      </div>
+
       <div className="d-flex justify-content-center">
         <div
           className="d-none d-sm-block col-3 m-0 p-0 pr-2"
