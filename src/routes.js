@@ -68,6 +68,7 @@ const Routes = () => {
               <LeftColumn
                 key={categoryData.id}
                 itemList={itemData}
+                className={leftColumnWrapper}
                 categoryInfo={categoryData.categoryCollection}
                 setSelectedChildCategory={setSelectedChildCategory}
                 selectedChildCategory={selectedChildCategory}
