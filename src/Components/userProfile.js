@@ -93,7 +93,7 @@ const UserProfile = ({ navBarBtnColor }) => {
 };
 
 UserProfile.propTypes = {
-  navBarBtnColor: PropTypes.func.isRequired,
+  navBarBtnColor: PropTypes.string.isRequired,
 };
 
 export default UserProfile;

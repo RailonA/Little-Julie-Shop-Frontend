@@ -66,13 +66,13 @@ const NavBar = ({
 NavBar.propTypes = {
   setSelectedCategory: PropTypes.func.isRequired,
   setSelectedChildCategory: PropTypes.func.isRequired,
-  selectedCategory: PropTypes.func.isRequired,
+  selectedCategory: PropTypes.string.isRequired,
   setStyleSheet: PropTypes.func.isRequired,
-  menuParentButton: PropTypes.func.isRequired,
-  menuChildButton: PropTypes.func.isRequired,
-  navBarWrapperDiv: PropTypes.func.isRequired,
-  pageTitle: PropTypes.func.isRequired,
-  navBarBtnColor: PropTypes.func.isRequired,
+  menuParentButton: PropTypes.string.isRequired,
+  menuChildButton: PropTypes.string.isRequired,
+  navBarWrapperDiv: PropTypes.string.isRequired,
+  pageTitle: PropTypes.string.isRequired,
+  navBarBtnColor: PropTypes.string.isRequired,
 };
 
 export default NavBar;

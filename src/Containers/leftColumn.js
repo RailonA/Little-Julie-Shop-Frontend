@@ -81,12 +81,12 @@ const LeftColumn = ({
 
 LeftColumn.propTypes = {
   categoryInfo: PropTypes.arrayOf(PropTypes.array).isRequired,
-  setSelectedCategory: PropTypes.func.isRequired,
+  setSelectedCategory: PropTypes.string.isRequired,
   setSelectedChildCategory: PropTypes.func.isRequired,
   selectedCategory: PropTypes.func.isRequired,
   setStyleSheet: PropTypes.func.isRequired,
-  menuParentButton: PropTypes.func.isRequired,
-  menuChildButton: PropTypes.func.isRequired,
+  menuParentButton: PropTypes.string.isRequired,
+  menuChildButton: PropTypes.string.isRequired,
 };
 
 export default LeftColumn;
