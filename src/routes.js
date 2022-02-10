@@ -82,16 +82,7 @@ const Routes = () => {
           </div>
           <div className="col-9 d-flex justify-content-center">
             <Switch className="mt-4">
-              <Route exact path="/" render={() => <HomePage itemData={itemData} filteredItems={filteredItems} itemPhotoContainer={itemPhotoContainer} itemCard={itemCard} buyButton={buyButton} />} />
-              {/* <Route
-                path="/"
-                render={(props) => <HomePage {...props}
-                  itemData={itemData}
-                  filteredItems={filteredItems}
-                  itemPhotoContainer={itemPhotoContainer}
-                  itemCard={itemCard} buyButton={buyButton}
-                />}
-              /> */}
+              <Route exact path="/" render={() => <HomePage itemData={itemData} filteredItems={filteredItems} itemPhotoContainer={itemPhotoContainer} itemCard={itemCard} buyButton={buyButton} setStyleSheet={setStyleSheet} />} />
               <Route path="/user/:id" component={UserPage} exact />
               <Route path="/Page404" component={Page404} exact />
               <Redirect to="/Page404" />

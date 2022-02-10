@@ -13,7 +13,7 @@ import '../Assets/styles/navBar.css';
 import '../Assets/styles/leftColumn.css';
 
 const HomePage = ({
-  itemData, filteredItems, itemPhotoContainer, itemCard, buyButton,
+  itemData, filteredItems, itemPhotoContainer, itemCard, buyButton, setStyleSheet,
 }) => {
   // const itemData = useSelector((state) => state.items);
   // const categoryData = useSelector((state) => state.category);
@@ -47,6 +47,7 @@ const HomePage = ({
               itemCard={itemCard}
               itemPhotoContainer={itemPhotoContainer}
               buyButton={buyButton}
+              setStyleSheet={setStyleSheet}
             />
           </div>
         </div>
@@ -61,6 +62,7 @@ HomePage.propTypes = {
   itemPhotoContainer: PropTypes.func.isRequired,
   itemCard: PropTypes.func.isRequired,
   buyButton: PropTypes.func.isRequired,
+  setStyleSheet: PropTypes.func.isRequired,
 };
 
 export default HomePage;
