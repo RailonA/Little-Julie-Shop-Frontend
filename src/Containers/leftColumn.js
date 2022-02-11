@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../Assets/styles/itemList.css';
 import '../Assets/styles/leftColumn.css';
 
@@ -57,7 +58,8 @@ const LeftColumn = ({
                 <ul className="d-flex flex-column">
                     {
                     filteredChildrenCategory.map((children) => (
-                      <button
+                      <Link
+                        to={`/category/${children.id}`}
                         type="button"
                         className={menuChildButton}
                         key={children.id}
@@ -65,7 +67,7 @@ const LeftColumn = ({
                         onClick={(e) => handleChildChange(e, children)}
                       >
                         {children.name}
-                      </button>
+                      </Link>
                     ))
                   }
                 </ul>

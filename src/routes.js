@@ -8,6 +8,7 @@ import HomePage from './Pages/homePage';
 import UserPage from './Pages/userPage';
 import Page404 from './Pages/Page404';
 import Nav from './Containers/navBar';
+import ItemList from './Containers/itemList';
 import LeftColumn from './Containers/leftColumn';
 
 import './Assets/styles/navBar.css';
@@ -33,6 +34,7 @@ const Routes = () => {
   const itemPhotoContainer = (styleSheet === false) ? ('itemPhotoContainerFemale') : ('itemPhotoContainerMale');
   const itemCard = (styleSheet === false) ? ('itemCardFemale') : ('itemCardMale');
   const buyButton = (styleSheet === false) ? ('buyButtonFemale') : ('buyButtonMale');
+
   const filteredItems = (selectedChildCategory !== '') ? itemData.itemsCollection.filter((item) => item.categories_id === parseInt(selectedChildCategory, 10)) : itemData.itemsCollection;
 
   const dispatch = useDispatch();
@@ -83,6 +85,7 @@ const Routes = () => {
           <div className="col-9 d-flex justify-content-center">
             <Switch className="mt-4">
               <Route exact path="/" render={() => <HomePage itemData={itemData} filteredItems={filteredItems} itemPhotoContainer={itemPhotoContainer} itemCard={itemCard} buyButton={buyButton} setStyleSheet={setStyleSheet} />} />
+              <Route exact path="/category/:id" render={() => <ItemList items={filteredItems} itemPhotoContainer={itemPhotoContainer} itemCard={itemCard} buyButton={buyButton} setStyleSheet={setStyleSheet} selectedChildCategory={selectedChildCategory} />} />
               <Route path="/user/:id" component={UserPage} exact />
               <Route path="/Page404" component={Page404} exact />
               <Redirect to="/Page404" />

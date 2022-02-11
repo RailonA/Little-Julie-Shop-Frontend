@@ -1,34 +1,16 @@
 /* eslint-disable max-len */
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-// import { useSelector, useDispatch } from 'react-redux';
-
 import { useEffect } from 'react';
-// import { useEffect, useState } from 'react';
-
 import requestItemInfo, { requestCategoryInfo } from '../Helpers/requests';
 import ItemList from '../Containers/itemList';
-// import LeftColumn from '../Containers/leftColumn';
 import '../Assets/styles/navBar.css';
 import '../Assets/styles/leftColumn.css';
 
 const HomePage = ({
   itemData, filteredItems, itemPhotoContainer, itemCard, buyButton, setStyleSheet,
 }) => {
-  // const itemData = useSelector((state) => state.items);
-  // const categoryData = useSelector((state) => state.category);
-  // const [selectedCategory, setSelectedCategory] = useState('');
-  // const [styleSheet, setStyleSheet] = useState(false);
-
   const dispatch = useDispatch();
-
-  // const [selectedChildCategory] = useState('');
-
-  // const filteredItems = (selectedChildCategory !== '') ? itemData.itemsCollection.filter((item) => item.categories_id === parseInt(selectedChildCategory, 10)) : itemData.itemsCollection;
-
-  // const itemPhotoContainer = (styleSheet === false) ? ('itemPhotoContainerFemale') : ('itemPhotoContainerMale');
-  // const itemCard = (styleSheet === false) ? ('itemCardFemale') : ('itemCardMale');
-  // const buyButton = (styleSheet === false) ? ('buyButtonFemale') : ('buyButtonMale');
 
   useEffect(() => {
     requestItemInfo(dispatch);

@@ -23,7 +23,7 @@ const NavBar = ({
   const itemData = useSelector((state) => state.items);
 
   const resetChildChange = () => {
-    setSelectedChildCategory('');
+    setSelectedCategory('');
   };
 
   return (
