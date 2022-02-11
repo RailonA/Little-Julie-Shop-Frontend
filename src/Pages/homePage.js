@@ -2,13 +2,14 @@
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect, useState } from 'react';
+import { Button } from 'react-bootstrap';
 import { Cloudinary } from '@cloudinary/url-gen';
 import requestItemInfo, { requestCategoryInfo } from '../Helpers/requests';
 import '../Assets/styles/navBar.css';
 import '../Assets/styles/leftColumn.css';
 
 const HomePage = ({
-  itemPhotoContainer, itemCard,
+  itemPhotoContainer, itemCard, buyButton,
 }) => {
   const [selectedChildCategory] = useState('');
   const itemData = useSelector((state) => state.items);
@@ -61,14 +62,14 @@ const HomePage = ({
                     <p className=" ">{ items.itemPrice }</p>
                   </div>
                   <div className="d-flex flex-row-reverse">
-                    {/* <Button
+                    <Button
                       type="button"
                       name="buy"
                       className={buyButton}
-                      onChange={(e) => addToShoppingCart(e)}
+                      // onChange={(e) => addToShoppingCart(e)}
                     >
                       Buy
-                    </Button> */}
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -85,7 +86,7 @@ HomePage.propTypes = {
   // filteredItems: PropTypes.func.isRequired,
   itemPhotoContainer: PropTypes.func.isRequired,
   itemCard: PropTypes.func.isRequired,
-  // buyButton: PropTypes.func.isRequired,
+  buyButton: PropTypes.func.isRequired,
   // setStyleSheet: PropTypes.func.isRequired,
 };
 
