@@ -17,11 +17,13 @@
 .itemCardFemale {
   border-radius: 10px;
   box-shadow: 0.2px 0.2px 20px rgb(245, 157, 172);
+  height: 450px;
 }
 
 .itemCardMale {
   border-radius: 10px;
   box-shadow: 0.2px 0.2px 20px rgb(111, 185, 255);
+  height: 450px;
 }
 
 .buyButtonFemale {

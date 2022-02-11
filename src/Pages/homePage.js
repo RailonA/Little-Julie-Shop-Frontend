@@ -25,7 +25,6 @@ const HomePage = ({
   });
 
   const getImage = (blobKey) => cld.image(blobKey).toURL();
-  // const [selectedChildCategory, setSelectedChildCategory] = useState('');
 
   const dispatch = useDispatch();
 
