@@ -3,7 +3,7 @@ import {
   Route, BrowserRouter, Switch, Redirect,
 } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import requestItemInfo, { requestCategoryInfo } from './Helpers/requests';
+import requestItemInfo, { requestCategoryInfo, requestShoppingCart } from './Helpers/requests';
 import HomePage from './Pages/homePage';
 import UserPage from './Pages/userPage';
 import Page404 from './Pages/Page404';
@@ -17,11 +17,17 @@ import './Assets/styles/leftColumn.css';
 // require('./Assets/styles/homePage.css');
 
 const Routes = () => {
+  const dispatch = useDispatch();
+
   const itemData = useSelector((state) => state.items);
   const categoryData = useSelector((state) => state.category);
+  const userData = useSelector((state) => state.currentUser);
+  const shoppingCartData = useSelector((state) => state.shoppingCart);
+
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedChildCategory, setSelectedChildCategory] = useState('');
   const [styleSheet, setStyleSheet] = useState(false);
+  const [chooseItem, setChooseItem] = useState('');
 
   const navBarWrapperDiv = (styleSheet === false) ? ('navBarWrapperFemale') : ('navBarWrapperMale');
   const pageTitle = (styleSheet === false) ? ('pageTitleFemale') : ('pageTitleMale');
@@ -37,10 +43,20 @@ const Routes = () => {
 
   const filteredItems = (selectedChildCategory !== '') ? itemData.itemsCollection.filter((item) => item.categories_id === parseInt(selectedChildCategory, 10)) : itemData.itemsCollection;
 
-  const dispatch = useDispatch();
+  const addToShoppingCart = (e) => {
+    e.preventDefault();
+    const itemId = e.target.value.id;
+    setChooseItem(itemId);
+    console.log(itemId);
+    requestShoppingCart(
+      dispatch, userData.id, chooseItem, userData.token,
+    );
+  };
 
+  console.log(shoppingCartData);
   useEffect(() => {
     requestItemInfo(dispatch);
+    requestCategoryInfo(dispatch);
     requestCategoryInfo(dispatch);
   }, [dispatch]);
 
@@ -84,8 +100,8 @@ const Routes = () => {
           </div>
           <div className="col-9 d-flex justify-content-center">
             <Switch className="mt-4">
-              <Route exact path="/" render={() => <HomePage itemData={itemData} filteredItems={filteredItems} itemPhotoContainer={itemPhotoContainer} itemCard={itemCard} buyButton={buyButton} setStyleSheet={setStyleSheet} />} />
-              <Route exact path="/category/:id" render={() => <ItemList items={filteredItems} itemPhotoContainer={itemPhotoContainer} itemCard={itemCard} buyButton={buyButton} setStyleSheet={setStyleSheet} selectedChildCategory={selectedChildCategory} />} />
+              <Route exact path="/" render={() => <HomePage itemData={itemData} filteredItems={filteredItems} itemPhotoContainer={itemPhotoContainer} itemCard={itemCard} buyButton={buyButton} setStyleSheet={setStyleSheet} addToShoppingCart={addToShoppingCart} />} />
+              <Route exact path="/category/:id" render={() => <ItemList items={filteredItems} itemPhotoContainer={itemPhotoContainer} itemCard={itemCard} buyButton={buyButton} setStyleSheet={setStyleSheet} selectedChildCategory={selectedChildCategory} addToShoppingCart={addToShoppingCart} />} />
               <Route path="/user/:id" component={UserPage} exact />
               <Route path="/Page404" component={Page404} exact />
               <Redirect to="/Page404" />

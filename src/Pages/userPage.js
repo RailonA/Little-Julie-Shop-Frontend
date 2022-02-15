@@ -1,20 +1,20 @@
 /* eslint-disable max-len */
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import requestItemInfo, { requestCategoryInfo } from '../Helpers/requests';
-// import ItemList from '../Containers/itemList';
+import requestItemInfo, { requestShoppingCartInfo } from '../Helpers/requests';
 import '../Assets/styles/navBar.css';
 import '../Assets/styles/leftColumn.css';
 
 const UserPage = () => {
-  const shoppingCartData = useSelector((state) => state.shoppingCart);
+  const shoppingCartData = useSelector((state) => state.shoppingCart.shoppingCartCollection);
+
   console.log(shoppingCartData);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     requestItemInfo(dispatch);
-    requestCategoryInfo(dispatch);
+    requestShoppingCartInfo(dispatch);
   }, [dispatch]);
 
   return (

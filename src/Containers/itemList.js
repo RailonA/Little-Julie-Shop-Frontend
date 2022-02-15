@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import React from 'react';
 import { Cloudinary } from '@cloudinary/url-gen';
 import { Button } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
@@ -6,7 +7,7 @@ import { useParams } from 'react-router-dom';
 import '../Assets/styles/itemList.css';
 
 const ItemList = ({
-  items, itemPhotoContainer, itemCard, buyButton, addToShoppingCart, selectedChildCategory,
+  items, itemPhotoContainer, itemCard, buyButton, selectedChildCategory, addToShoppingCart,
 }) => {
   const { id } = useParams();
 
@@ -57,7 +58,7 @@ const ItemList = ({
                           type="button"
                           name="buy"
                           className={buyButton}
-                          onChange={(e) => addToShoppingCart(e)}
+                          onClick={(e) => addToShoppingCart(e)}
                         >
                           Buy
                         </Button>
@@ -80,8 +81,8 @@ ItemList.propTypes = {
   itemPhotoContainer: PropTypes.func.isRequired,
   itemCard: PropTypes.func.isRequired,
   buyButton: PropTypes.func.isRequired,
-  addToShoppingCart: PropTypes.func.isRequired,
   selectedChildCategory: PropTypes.func.isRequired,
+  addToShoppingCart: PropTypes.func.isRequired,
 };
 
 export default ItemList;

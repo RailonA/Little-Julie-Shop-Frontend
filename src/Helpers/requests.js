@@ -116,13 +116,13 @@ export const requestShoppingCart = async (
           Authorization: token,
         },
       });
-    dispatch(sendFeedbackAction({ type: 'success', feedback: 'You successfully reserved appointment.' }));
+    dispatch(sendFeedbackAction({ type: 'success', feedback: 'Item Selected!' }));
   } catch (error) {
     handleError(dispatch, 'shoppingCarts', error);
   }
 };
 
-export const requestAppointmentInfo = async (dispatch) => {
+export const requestShoppingCartInfo = async (dispatch) => {
   try {
     dispatch(getShoppingCartRequest());
     const response = await axios.get(requests.shoppingCarts);

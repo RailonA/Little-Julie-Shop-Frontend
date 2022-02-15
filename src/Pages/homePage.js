@@ -5,8 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Cloudinary } from '@cloudinary/url-gen';
 import requestItemInfo, { requestCategoryInfo } from '../Helpers/requests';
-import '../Assets/styles/navBar.css';
-import '../Assets/styles/leftColumn.css';
+import '../Assets/styles/itemList.css';
 
 const HomePage = ({
   itemPhotoContainer, itemCard, buyButton,
