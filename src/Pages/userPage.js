@@ -1,14 +1,14 @@
 /* eslint-disable max-len */
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import requestItemInfo, { requestShoppingCartInfo } from '../Helpers/requests';
 import '../Assets/styles/navBar.css';
 import '../Assets/styles/leftColumn.css';
 
 const UserPage = () => {
-  const shoppingCartData = useSelector((state) => state.shoppingCart.shoppingCartCollection);
+  // const shoppingCartData = useSelector((state) => state.shoppingCart.shoppingCartCollection);
 
-  console.log(shoppingCartData);
+  // console.log(shoppingCartData);
 
   const dispatch = useDispatch();
 

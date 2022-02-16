@@ -22,7 +22,7 @@ const Routes = () => {
   const itemData = useSelector((state) => state.items);
   const categoryData = useSelector((state) => state.category);
   const userData = useSelector((state) => state.currentUser);
-  const shoppingCartData = useSelector((state) => state.shoppingCart);
+  // const shoppingCartData = useSelector((state) => state.shoppingCart);
 
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedChildCategory, setSelectedChildCategory] = useState('');
@@ -43,17 +43,15 @@ const Routes = () => {
 
   const filteredItems = (selectedChildCategory !== '') ? itemData.itemsCollection.filter((item) => item.categories_id === parseInt(selectedChildCategory, 10)) : itemData.itemsCollection;
 
-  const addToShoppingCart = (e) => {
-    e.preventDefault();
-    const itemId = e.target.value.id;
-    setChooseItem(itemId);
-    console.log(itemId);
+  const addToShoppingCart = (e, item) => {
+    setChooseItem(item.id);
     requestShoppingCart(
       dispatch, userData.id, chooseItem, userData.token,
     );
   };
 
-  console.log(shoppingCartData);
+  // console.log(filteredItems);
+
   useEffect(() => {
     requestItemInfo(dispatch);
     requestCategoryInfo(dispatch);

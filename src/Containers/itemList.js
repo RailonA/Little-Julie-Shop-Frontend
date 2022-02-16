@@ -55,10 +55,11 @@ const ItemList = ({
                       </div>
                       <div className="d-flex flex-row-reverse">
                         <Button
-                          type="button"
+                          key={items.id}
+                          type="submit"
                           name="buy"
                           className={buyButton}
-                          onClick={(e) => addToShoppingCart(e)}
+                          onClick={(e) => addToShoppingCart(e, items)}
                         >
                           Buy
                         </Button>

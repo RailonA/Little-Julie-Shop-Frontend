@@ -33,7 +33,7 @@ const handleError = (dispatch, action, error) => {
       dispatch(sendFeedbackAction({ type: 'error', feedback: error.response.data.error }));
     }
     if (error.response.status === 422) {
-      dispatch(sendFeedbackAction({ type: 'error', feedback: 'Item already selected' }));
+      dispatch(sendFeedbackAction({ type: 'error', feedback: 'Error: 422' }));
     }
   }
 };
