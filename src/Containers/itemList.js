@@ -7,7 +7,7 @@ import { useParams } from 'react-router-dom';
 import '../Assets/styles/itemList.css';
 
 const ItemList = ({
-  items, itemPhotoContainer, itemCard, buyButton, selectedChildCategory, addToShoppingCart,
+  items, itemPhotoContainer, itemCard, buyButton, selectedChildCategory, addToCartHandler,
 }) => {
   const { id } = useParams();
 
@@ -57,9 +57,8 @@ const ItemList = ({
                         <Button
                           key={items.id}
                           type="submit"
-                          name="buy"
                           className={buyButton}
-                          onClick={(e) => addToShoppingCart(e, items)}
+                          onClick={(e) => addToCartHandler(e, items)}
                         >
                           Buy
                         </Button>
@@ -78,12 +77,12 @@ const ItemList = ({
 };
 
 ItemList.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.array).isRequired,
-  itemPhotoContainer: PropTypes.func.isRequired,
-  itemCard: PropTypes.func.isRequired,
-  buyButton: PropTypes.func.isRequired,
-  selectedChildCategory: PropTypes.func.isRequired,
-  addToShoppingCart: PropTypes.func.isRequired,
+  items: PropTypes.arrayOf(PropTypes.object).isRequired,
+  itemPhotoContainer: PropTypes.string.isRequired,
+  itemCard: PropTypes.string.isRequired,
+  buyButton: PropTypes.string.isRequired,
+  selectedChildCategory: PropTypes.string.isRequired,
+  addToCartHandler: PropTypes.func.isRequired,
 };
 
 export default ItemList;

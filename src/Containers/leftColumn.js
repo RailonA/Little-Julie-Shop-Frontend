@@ -82,10 +82,10 @@ const LeftColumn = ({
 };
 
 LeftColumn.propTypes = {
-  categoryInfo: PropTypes.arrayOf(PropTypes.array).isRequired,
-  setSelectedCategory: PropTypes.string.isRequired,
+  categoryInfo: PropTypes.arrayOf(PropTypes.object).isRequired,
+  setSelectedCategory: PropTypes.func.isRequired,
   setSelectedChildCategory: PropTypes.func.isRequired,
-  selectedCategory: PropTypes.func.isRequired,
+  selectedCategory: PropTypes.string.isRequired,
   setStyleSheet: PropTypes.func.isRequired,
   menuParentButton: PropTypes.string.isRequired,
   menuChildButton: PropTypes.string.isRequired,

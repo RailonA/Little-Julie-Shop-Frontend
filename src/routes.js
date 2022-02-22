@@ -27,7 +27,7 @@ const Routes = () => {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedChildCategory, setSelectedChildCategory] = useState('');
   const [styleSheet, setStyleSheet] = useState(false);
-  const [chooseItem, setChooseItem] = useState('');
+  const [chooseItem, setChooseItem] = useState();
 
   const navBarWrapperDiv = (styleSheet === false) ? ('navBarWrapperFemale') : ('navBarWrapperMale');
   const pageTitle = (styleSheet === false) ? ('pageTitleFemale') : ('pageTitleMale');
@@ -43,18 +43,15 @@ const Routes = () => {
 
   const filteredItems = (selectedChildCategory !== '') ? itemData.itemsCollection.filter((item) => item.categories_id === parseInt(selectedChildCategory, 10)) : itemData.itemsCollection;
 
-  const addToShoppingCart = (e, item) => {
+  const addToCartHandler = (e, item) => {
     setChooseItem(item.id);
     requestShoppingCart(
       dispatch, userData.id, chooseItem, userData.token,
     );
   };
 
-  // console.log(filteredItems);
-
   useEffect(() => {
     requestItemInfo(dispatch);
-    requestCategoryInfo(dispatch);
     requestCategoryInfo(dispatch);
   }, [dispatch]);
 
@@ -98,8 +95,8 @@ const Routes = () => {
           </div>
           <div className="col-9 d-flex justify-content-center">
             <Switch className="mt-4">
-              <Route exact path="/" render={() => <HomePage itemData={itemData} filteredItems={filteredItems} itemPhotoContainer={itemPhotoContainer} itemCard={itemCard} buyButton={buyButton} setStyleSheet={setStyleSheet} addToShoppingCart={addToShoppingCart} />} />
-              <Route exact path="/category/:id" render={() => <ItemList items={filteredItems} itemPhotoContainer={itemPhotoContainer} itemCard={itemCard} buyButton={buyButton} setStyleSheet={setStyleSheet} selectedChildCategory={selectedChildCategory} addToShoppingCart={addToShoppingCart} />} />
+              <Route exact path="/" render={() => <HomePage itemData={itemData} filteredItems={filteredItems} itemPhotoContainer={itemPhotoContainer} itemCard={itemCard} buyButton={buyButton} setStyleSheet={setStyleSheet} addToCartHandler={addToCartHandler} />} />
+              <Route exact path="/category/:id" render={() => <ItemList items={filteredItems} itemPhotoContainer={itemPhotoContainer} itemCard={itemCard} buyButton={buyButton} setStyleSheet={setStyleSheet} selectedChildCategory={selectedChildCategory} addToCartHandler={addToCartHandler} />} />
               <Route path="/user/:id" component={UserPage} exact />
               <Route path="/Page404" component={Page404} exact />
               <Redirect to="/Page404" />
