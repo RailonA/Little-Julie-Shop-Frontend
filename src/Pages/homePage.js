@@ -83,9 +83,9 @@ const HomePage = ({
 HomePage.propTypes = {
   // itemData: PropTypes.func.isRequired,
   // filteredItems: PropTypes.func.isRequired,
-  itemPhotoContainer: PropTypes.func.isRequired,
-  itemCard: PropTypes.func.isRequired,
-  buyButton: PropTypes.func.isRequired,
+  itemPhotoContainer: PropTypes.string.isRequired,
+  itemCard: PropTypes.string.isRequired,
+  buyButton: PropTypes.string.isRequired,
   // setStyleSheet: PropTypes.func.isRequired,
 };
 
