@@ -43,7 +43,7 @@ const Routes = () => {
 
   const filteredItems = (selectedChildCategory !== '') ? itemData.itemsCollection.filter((item) => item.categories_id === parseInt(selectedChildCategory, 10)) : itemData.itemsCollection;
 
-  const addToCartHandler = (e, item) => {
+  const handleAddToCart = (e, item) => {
     setChooseItem(item.id);
     requestShoppingCart(
       dispatch, userData.id, chooseItem, userData.token,
@@ -95,8 +95,8 @@ const Routes = () => {
           </div>
           <div className="col-9 d-flex justify-content-center">
             <Switch className="mt-4">
-              <Route exact path="/" render={() => <HomePage itemData={itemData} filteredItems={filteredItems} itemPhotoContainer={itemPhotoContainer} itemCard={itemCard} buyButton={buyButton} setStyleSheet={setStyleSheet} addToCartHandler={addToCartHandler} />} />
-              <Route exact path="/category/:id" render={() => <ItemList items={filteredItems} itemPhotoContainer={itemPhotoContainer} itemCard={itemCard} buyButton={buyButton} setStyleSheet={setStyleSheet} selectedChildCategory={selectedChildCategory} addToCartHandler={addToCartHandler} />} />
+              <Route exact path="/" render={() => <HomePage itemData={itemData} filteredItems={filteredItems} itemPhotoContainer={itemPhotoContainer} itemCard={itemCard} buyButton={buyButton} setStyleSheet={setStyleSheet} handleAddToCart={handleAddToCart} />} />
+              <Route exact path="/category/:id" render={() => <ItemList items={filteredItems} itemPhotoContainer={itemPhotoContainer} itemCard={itemCard} buyButton={buyButton} setStyleSheet={setStyleSheet} selectedChildCategory={selectedChildCategory} handleAddToCart={handleAddToCart} />} />
               <Route path="/user/:id" component={UserPage} exact />
               <Route path="/Page404" component={Page404} exact />
               <Redirect to="/Page404" />
